@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCS Bigard — Recommandations & Actions</title>
+    <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: #2C3E50; line-height: 1.6; }
+    .header { background: linear-gradient(135deg, #2C3E50, #34495E); color: white; padding: 40px; text-align: center; }
+    .header h1 { font-size: 2em; margin-bottom: 10px; }
+    .header .subtitle { font-size: 1.1em; opacity: 0.8; }
+    .header .nav { margin-top: 15px; }
+    .header .nav a { color: white; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; text-decoration: none; margin: 0 5px; font-size: 0.95em; }
+    .header .nav a:hover { background: rgba(255,255,255,0.35); }
+    .header .nav a.active { background: #E67E22; font-weight: bold; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 30px 0; }
+    .metric-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+    .metric-card .value { font-size: 2em; font-weight: bold; color: #2C3E50; }
+    .metric-card .label { font-size: 0.9em; color: #7F8C8D; margin-top: 5px; }
+    .metric-card.accent .value { color: #E67E22; }
+    .metric-card.red .value { color: #E74C3C; }
+    .metric-card.blue .value { color: #2E86C1; }
+    .metric-card.green .value { color: #27AE60; }
+    .section { background: white; border-radius: 10px; padding: 30px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .section h2 { color: #2C3E50; border-bottom: 3px solid #E67E22; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4em; }
+    .section h3 { color: #34495E; margin: 15px 0 10px; }
+    .chart-img { width: 100%; max-width: 100%; border-radius: 8px; margin: 15px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+    th { background: #2C3E50; color: white; padding: 12px 8px; text-align: left; }
+    td { padding: 10px 8px; border-bottom: 1px solid #eee; }
+    tr:hover { background: #f8f9fa; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; }
+    .tag-porc { background: #FADBD8; color: #E74C3C; }
+    .tag-boeuf { background: #D6EAF8; color: #2E86C1; }
+    .tag-brebis { background: #D5F5E3; color: #27AE60; }
+    .highlight { background: #FEF9E7; border-left: 4px solid #E67E22; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+    .savings { color: #27AE60; font-weight: bold; }
+    .footer { text-align: center; padding: 30px; color: #7F8C8D; font-size: 0.9em; }
+    .planning-table td { text-align: center; font-size: 0.85em; }
+    .planning-table td.has-value { background: #EBF5FB; font-weight: bold; }
+    .planning-table td.high-value { background: #F9EBEA; font-weight: bold; color: #E74C3C; }
+    .big-number { font-size: 3em; font-weight: bold; color: #E67E22; text-align: center; margin: 10px 0; }
+    .answer-box { background: #D5F5E3; border: 2px solid #27AE60; border-radius: 10px; padding: 20px; margin: 15px 0; }
+    .answer-box h3 { color: #27AE60; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<div class="header" style="background: linear-gradient(135deg, #E67E22, #D35400);">
+    <h1>RAPPORT 2 — RECOMMANDATIONS & ACTIONS</h1>
+    <div class="subtitle">BCS Bigard | Ce qu'il faut faire | Avril 2026</div>
+    <div class="subtitle" style="margin-top:5px;">Préparé pour Dominique Page — DPO / Groupe Olano</div>
+    <div class="nav">
+    <a href="analyse.html">Analyse des Données</a>
+    <a href="recommandations.html" class="active">Recommandations & Actions</a>
+</div>
+</div>
+
+<div class="container">
+
+<!-- Quick Context -->
+<div class="metrics-grid">
+    <div class="metric-card accent">
+        <div class="value">3 798t</div>
+        <div class="label">Tonnage total (Jan-Fév)</div>
+    </div>
+    <div class="metric-card blue">
+        <div class="value">190</div>
+        <div class="label">Camions sur 2 mois</div>
+    </div>
+    <div class="metric-card">
+        <div class="value">21</div>
+        <div class="label">Camions/semaine (moyenne)</div>
+    </div>
+    <div class="metric-card red">
+        <div class="value">69%</div>
+        <div class="label">Lots bœuf &lt; 10t (à consolider)</div>
+    </div>
+</div>
+
+<div class="section" style="background: #EBF5FB; border: 2px solid #2E86C1;">
+    <h2 style="border-bottom-color: #2E86C1;">CE RAPPORT RÉPOND À 3 QUESTIONS</h2>
+    <table>
+        <tr><th style="width:40px;">#</th><th>Question</th><th>Réponse courte</th></tr>
+        <tr>
+            <td style="font-size:1.5em; font-weight:bold; text-align:center;">1</td>
+            <td><strong>Combien de camions par jour depuis les abattoirs bœuf les plus éloignés de Mâcon ?</strong></td>
+            <td>Mercredi = 3 camions, Vendredi = 2 camions, autres jours = 1 camion<br>
+            <em>Quimperlé (820km) est le plus gros volume lointain</em></td>
+        </tr>
+        <tr>
+            <td style="font-size:1.5em; font-weight:bold; text-align:center;">2</td>
+            <td><strong>Y a-t-il des camions qui font que de la ramasse (multi-abattoirs, petits lots) à vider à Mâcon ?</strong></td>
+            <td class="savings">OUI — 4 routes de ramasse identifiées, ~7 camions/semaine restent en France</td>
+        </tr>
+        <tr>
+            <td style="font-size:1.5em; font-weight:bold; text-align:center;">3</td>
+            <td><strong>D'où partent ces camions de ramasse ? Quel jour ?</strong></td>
+            <td>Ouest-Vendée (2/jour), Normandie (1/jour), Est (1/jour), Bretagne (2-3/jour)<br>
+            <em>Jours les plus chargés : Vendredi et Mercredi</em></td>
+        </tr>
+    </table>
+</div>
+
+<!-- Ramasse Analysis -->
+<div class="section">
+    <h2>11. ANALYSE RAMASSE BŒUF — Camions qui restent en France</h2>
+    <div class="highlight" style="background: #EBF5FB; border-left-color: #2E86C1;">
+        <strong>Concept :</strong> Un camion de <em>ramasse</em> fait le tour de plusieurs abattoirs proches,
+        charge les petits lots (&lt;10t), et livre le tout à Mâcon. <strong>Il ne va PAS en Italie.</strong>
+        À Mâcon, les lots sont redistribués sur des camions complets (20t) pour l'Italie.
+    </div>
+
+    <h3>11.1 Constat : 69% des lots bœuf sont des petits lots</h3>
+    <p>Sur 255 expéditions bœuf (jour/abattoir), <strong>176 sont inférieures à 10 tonnes</strong> (69%).
+    Ces petits lots ne justifient pas un camion direct vers l'Italie — ils doivent être collectés et consolidés.</p>
+
+    <h3>11.2 Abattoirs bœuf les plus éloignés de Mâcon</h3>
+    <table>
+        <tr><th>Abattoir</th><th>Distance Mâcon</th><th>Volume moyen/jour</th><th>Jours principaux</th><th>Camions/jour</th></tr>
+        <tr style="background:#FDEDEC;">
+            <td><strong>Quimperlé</strong></td><td>820 km</td><td>25.5t</td>
+            <td>Mercredi (47t), Mardi (17t), Vendredi (10t)</td>
+            <td>Mercredi: 3 | Mardi: 1 | Vendredi: 1</td>
+        </tr>
+        <tr>
+            <td><strong>Guingamp</strong></td><td>830 km</td><td>2.3t</td>
+            <td>Vendredi (ponctuel)</td><td>1 (rare)</td>
+        </tr>
+        <tr>
+            <td><strong>Montauban de Bretagne</strong></td><td>750 km</td><td>2.7t</td>
+            <td>Mardi, Mercredi, Vendredi</td><td>1</td>
+        </tr>
+        <tr>
+            <td><strong>Coutances</strong></td><td>700 km</td><td>3.2t</td>
+            <td>Vendredi (principal), Mardi</td><td>1</td>
+        </tr>
+        <tr>
+            <td><strong>Gacé</strong></td><td>600 km</td><td>5.7t</td>
+            <td>Vendredi (14t), Mercredi (4t), tous les jours</td><td>1</td>
+        </tr>
+    </table>
+    <div class="highlight">
+        <strong>Total abattoirs lointains bœuf :</strong> Mercredi = 3 camions | Vendredi = 2 camions | Autres jours = 1 camion
+    </div>
+
+    <h3>11.3 Routes de ramasse identifiées</h3>
+    <table>
+        <tr><th>Route</th><th>Abattoirs</th><th>Distance moy.</th><th>Volume 2 mois</th><th>Camions ramasse</th><th>Jours typiques</th></tr>
+        <tr style="background:#FEF9E7;">
+            <td><strong>OUEST-VENDÉE</strong></td>
+            <td>La Roche sur Yon → Châtaigneraie → Cholet → Cherré → Mâcon</td>
+            <td>512 km</td>
+            <td>944t (48 cam.)</td>
+            <td>2/jour</td>
+            <td>Vendredi (3 cam.), Mercredi (2), Mardi (2)</td>
+        </tr>
+        <tr style="background:#FEF9E7;">
+            <td><strong>NORMANDIE</strong></td>
+            <td>Coutances → Gacé → Sablé → Mâcon</td>
+            <td>593 km</td>
+            <td>227t (12 cam.)</td>
+            <td>1/jour</td>
+            <td>Vendredi (principal), Mardi-Jeudi (ponctuel)</td>
+        </tr>
+        <tr>
+            <td><strong>EST</strong></td>
+            <td>Metz → Vitry → Mâcon</td>
+            <td>375 km</td>
+            <td>161t (9 cam.)</td>
+            <td>1/jour</td>
+            <td>Mercredi et Vendredi</td>
+        </tr>
+        <tr>
+            <td><strong>BRETAGNE-OUEST</strong></td>
+            <td>Quimperlé → Guingamp → Montauban → Mâcon</td>
+            <td>800 km</td>
+            <td>552t (28 cam.)</td>
+            <td>2-3/jour</td>
+            <td>Mercredi (3 cam.), Vendredi (1)</td>
+        </tr>
+    </table>
+
+    <h3>11.4 Sites isolés — pas de ramasse possible</h3>
+    <table>
+        <tr><th>Site</th><th>Distance</th><th>Lot moyen</th><th>Situation</th></tr>
+        <tr>
+            <td><strong>Castres</strong></td><td>450 km (Sud)</td><td>6.9t</td>
+            <td>Isolé géographiquement, lot souvent partiel — envoyer direct ou intégrer dans un retour</td>
+        </tr>
+        <tr>
+            <td><strong>Feignies</strong></td><td>550 km (Nord)</td><td>7.3t</td>
+            <td>Seul abattoir dans le Nord — pas de cluster, lot partiel fréquent</td>
+        </tr>
+        <tr style="background:#D5F5E3;">
+            <td><strong>Cuiseaux</strong></td><td>50 km (!)</td><td>5.3t</td>
+            <td>Pratiquement à côté de Mâcon — livraison directe au hub, coût minime</td>
+        </tr>
+    </table>
+
+    <h3>11.5 Camions de ramasse par jour — résumé hebdomadaire</h3>
+    <table>
+        <tr><th>Jour</th><th>Tonnes ramasse</th><th>Camions ramasse</th><th>Principaux départs</th></tr>
+        <tr>
+            <td>Lundi</td><td>0.7t</td><td style="text-align:center;">1</td><td>Gacé</td>
+        </tr>
+        <tr style="background:#FEF9E7;">
+            <td><strong>Mardi</strong></td><td>14.4t</td><td style="text-align:center;"><strong>1</strong></td><td>Castres, Châtaigneraie, Vitry, Feignies</td>
+        </tr>
+        <tr style="background:#FEF9E7;">
+            <td><strong>Mercredi</strong></td><td>24.2t</td><td style="text-align:center;"><strong>2</strong></td><td>La Roche, Cuiseaux, Vitry, Cherré</td>
+        </tr>
+        <tr>
+            <td>Jeudi</td><td>9.8t</td><td style="text-align:center;">1</td><td>Cuiseaux, Châtaigneraie, Gacé</td>
+        </tr>
+        <tr style="background:#FDEDEC;">
+            <td><strong>Vendredi</strong></td><td>26.8t</td><td style="text-align:center;"><strong>2</strong></td><td>Castres, Coutances, Quimperlé, Vitry</td>
+        </tr>
+    </table>
+    <div class="highlight" style="background: #D5F5E3; border-left-color: #27AE60;">
+        <strong>Conclusion ramasse :</strong> Il faut prévoir <strong>~7 camions de ramasse bœuf par semaine</strong>
+        qui restent en France (collecte multi-abattoirs → Mâcon).
+        Ces camions ne vont pas en Italie : ils alimentent le hub pour former des camions complets.
+        Le vendredi et le mercredi sont les jours les plus chargés (2 camions de ramasse chacun).
+    </div>
+</div>
+
+<!-- Next Week Action Plan -->
+<div class="section" style="border: 3px solid #E67E22;">
+    <h2>12. PLAN D'ACTION — SEMAINE PROCHAINE (S16 : 14-18 avril 2026)</h2>
+    <div class="highlight" style="background: #EBF5FB; border-left-color: #2E86C1;">
+        <strong>Estimation globale :</strong> Prévoir <strong>~21 camions</strong> cette semaine
+        (fourchette probable : 13 à 29 selon la variabilité observée).<br>
+        Répartition estimée : <strong>~7 camions PORC</strong> | <strong>~13 camions BŒUF</strong> | <strong>~1 camion BREBIS</strong>
+    </div>
+
+    <h3>Planification jour par jour (basée sur les moyennes Jan-Fév)</h3>
+    <table>
+        <tr>
+            <th>Jour</th>
+            <th>Camions estimés</th>
+            <th>Abattoirs principaux attendus</th>
+            <th>Ce qu'il faut préparer</th>
+        </tr>
+        <tr>
+            <td><strong>Lundi</strong></td>
+            <td style="text-align:center;">~1</td>
+            <td>Volumes faibles. Possibles expéditions Gacé, Châteauneuf (porc), Evron</td>
+            <td>Jour léger — vérifier s'il y a des restants du vendredi précédent à consolider. Idéal pour planifier la semaine.</td>
+        </tr>
+        <tr style="background:#FEF9E7;">
+            <td><strong>Mardi</strong></td>
+            <td style="text-align:center;"><strong>~4</strong></td>
+            <td>
+                <span class="tag tag-porc">PORC</span> Châteauneuf du Faou (~1.4 cam.), St Brice (~0.5)<br>
+                <span class="tag tag-boeuf">BOEUF</span> La Roche sur Yon (~0.9), Quimperlé (~0.4)<br>
+                <span class="tag tag-brebis">BREBIS</span> Bichon Le Vigeant (~0.3)
+            </td>
+            <td>Premier pic de la semaine. Vérifier si les volumes porc de Châteauneuf justifient 1 ou 2 camions. Consolider les petits lots bœuf (La Roche + Quimperlé si même zone de livraison).</td>
+        </tr>
+        <tr style="background:#FEF9E7;">
+            <td><strong>Mercredi</strong></td>
+            <td style="text-align:center;"><strong>~6</strong></td>
+            <td>
+                <span class="tag tag-boeuf">BOEUF</span> Quimperlé (~2.1 cam. — jour principal), Châtaigneraie (~0.7), Castres (~0.6)<br>
+                <span class="tag tag-porc">PORC</span> St Brice (~0.5), Châteauneuf (~0.4), Evron (~0.2)
+            </td>
+            <td>Jour fort pour Quimperlé (2+ camions bœuf). Vérifier consolidation Châtaigneraie + La Roche si destinations communes (Nord Italie). Les volumes Castres sont souvent partiels — évaluer si rentable de les consolider via Mâcon ou expédier direct.</td>
+        </tr>
+        <tr>
+            <td><strong>Jeudi</strong></td>
+            <td style="text-align:center;">~2</td>
+            <td>
+                <span class="tag tag-porc">PORC</span> St Brice (~0.8 — jour principal)<br>
+                <span class="tag tag-boeuf">BOEUF</span> Cuiseaux (~0.4), Bichon (~0.3)
+            </td>
+            <td>Jour intermédiaire. St Brice en Coglès sera probablement le plus gros volume (porc). Cuiseaux + petits lots bœuf à consolider si possible.</td>
+        </tr>
+        <tr style="background:#FDEDEC;">
+            <td><strong style="color:#E74C3C;">Vendredi</strong></td>
+            <td style="text-align:center;"><strong style="color:#E74C3C;">~8</strong></td>
+            <td>
+                <span class="tag tag-porc">PORC</span> Châteauneuf du Faou (~1.7 cam.), Evron (~0.5)<br>
+                <span class="tag tag-boeuf">BOEUF</span> Châtaigneraie (~1.1), Cherré (~1.1), La Roche (~0.7), Gacé (~0.7), Holtzheim (~0.4)
+            </td>
+            <td><strong>Jour le plus chargé.</strong> 8 camions à organiser. Priorité : sécuriser les camions tôt. Châteauneuf + Evron (porc) peuvent potentiellement être consolidés si destinations proches. Côté bœuf, Châtaigneraie + Cherré + La Roche = 3 camions minimum — chercher les destinations communes pour regrouper.</td>
+        </tr>
+    </table>
+
+    <h3>Actions concrètes recommandées</h3>
+    <table>
+        <tr><th style="width:40px;">#</th><th>Action</th><th>Priorité</th><th>Détail</th></tr>
+        <tr>
+            <td>1</td>
+            <td><strong>Récupérer les commandes réelles dès lundi matin</strong></td>
+            <td style="color:#E74C3C; font-weight:bold;">URGENT</td>
+            <td>Comparer les commandes reçues avec les prévisions ci-dessus. Identifier les écarts dès le début de semaine.</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><strong>Planifier le vendredi en priorité</strong></td>
+            <td style="color:#E74C3C; font-weight:bold;">URGENT</td>
+            <td>Le vendredi concentre ~38% du volume hebdomadaire (~8 camions). Sécuriser les transporteurs tôt dans la semaine pour ce jour.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><strong>Identifier les consolidations mardi-mercredi</strong></td>
+            <td style="color:#E67E22; font-weight:bold;">IMPORTANT</td>
+            <td>Les volumes de mardi (4 cam.) et mercredi (6 cam.) offrent les meilleures opportunités de consolidation J+1. Un lot partiel du mardi peut attendre le mercredi si ça complète un camion.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><strong>Surveiller Châteauneuf du Faou</strong></td>
+            <td style="color:#E67E22; font-weight:bold;">IMPORTANT</td>
+            <td>Plus gros site (3.7 cam./sem.) mais VOLATILE (CV élevé). Les volumes peuvent varier fortement d'une semaine à l'autre — prévoir un plan B.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><strong>Vérifier les destinations communes entre abattoirs</strong></td>
+            <td style="color:#27AE60; font-weight:bold;">OPTIMISATION</td>
+            <td>47 destinations sont livrées par 2+ abattoirs. Exemple : Castelnuovo Rangone reçoit depuis 4 abattoirs porc — consolidation naturelle via Mâcon.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><strong>Valider les règles métier avec ce rapport</strong></td>
+            <td style="color:#27AE60; font-weight:bold;">OPTIMISATION</td>
+            <td>Parcourir la section 0 (Règles) et confirmer/compléter les règles. Chaque règle manquante fausse les estimations.</td>
+        </tr>
+    </table>
+
+    <h3>Résumé express pour Dominique</h3>
+    <div class="highlight" style="background: #D5F5E3; border-left-color: #27AE60; font-size: 1.05em;">
+        <strong>Semaine prochaine, à retenir :</strong>
+        <ul style="margin-top:8px;">
+            <li><strong>21 camions à planifier</strong> sur la semaine (fourchette 13-29)</li>
+            <li><strong>7 camions porc</strong> — surtout Châteauneuf (mardi + vendredi) et St Brice (jeudi)</li>
+            <li><strong>13 camions bœuf</strong> — surtout Quimperlé (mercredi), Châtaigneraie et Cherré (vendredi)</li>
+            <li><strong>1 camion brebis</strong> — Bichon Le Vigeant (mardi ou jeudi)</li>
+            <li><strong>Jour critique = vendredi</strong> (8 camions, 38% du volume) → planifier en premier</li>
+            <li><strong>Meilleure opportunité de consolidation :</strong> regrouper mardi + mercredi via flexibilité J+1</li>
+        </ul>
+    </div>
+</div>
+
+
+
+</div>
+
+<div class="footer">
+    <p>Rapport BCS Bigard — Recommandations & Actions</p>
+    <p>Données: Janvier-Février 2026 | Analyse BŒUF uniquement pour les questions de ramasse</p>
+    <p style="margin-top:10px;"><a href="analyse.html" style="color:#E67E22; font-weight:bold;">→ Voir le Rapport 1 : Analyse des Données</a></p>
+</div>
+
+</body>
+</html>
