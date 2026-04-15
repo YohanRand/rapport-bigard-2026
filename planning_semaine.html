@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planning Semaine — 21-25 avril 2026 — Bigard</title>
+    <title>Planning camions — Semaine du 21 au 25 avril 2026 — Bigard</title>
     <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: #2C3E50; line-height: 1.6; }
 .header { background: linear-gradient(135deg, #2C3E50, #34495E); color: white; padding: 40px; text-align: center; }
 .header h1 { font-size: 2em; margin-bottom: 10px; }
-.header .subtitle { font-size: 1.1em; opacity: 0.8; }
+.header .subtitle { font-size: 1.05em; opacity: 0.85; }
 .header .nav { margin-top: 15px; }
 .header .nav a { color: white; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; text-decoration: none; margin: 0 5px; font-size: 0.95em; }
 .header .nav a:hover { background: rgba(255,255,255,0.35); }
@@ -26,51 +26,83 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: 
 .section { background: white; border-radius: 10px; padding: 30px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 .section h2 { color: #2C3E50; border-bottom: 3px solid #E67E22; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4em; }
 .section h3 { color: #34495E; margin: 15px 0 10px; }
+.section p { margin-bottom: 8px; }
 table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.92em; }
 th { background: #2C3E50; color: white; padding: 10px 6px; text-align: left; }
 td { padding: 8px 6px; border-bottom: 1px solid #eee; vertical-align: top; }
 tr:hover { background: #f8f9fa; }
-.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; font-weight: bold; white-space: nowrap; }
-.tag-porc { background: #FADBD8; color: #E74C3C; }
-.tag-boeuf { background: #D6EAF8; color: #2E86C1; }
-.tag-brebis { background: #D5F5E3; color: #27AE60; }
-.conf-haute { color: #27AE60; font-weight: bold; }
-.conf-moyenne { color: #E67E22; font-weight: bold; }
-.conf-faible { color: #E74C3C; font-weight: bold; }
 .highlight { background: #FEF9E7; border-left: 4px solid #E67E22; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
 .highlight-green { background: #D5F5E3; border-left: 4px solid #27AE60; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
 .highlight-blue { background: #D6EAF8; border-left: 4px solid #2E86C1; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
 .footer { text-align: center; padding: 30px; color: #7F8C8D; font-size: 0.9em; }
-.day-block { border: 1px solid #e1e5eb; border-radius: 10px; margin: 20px 0; overflow: hidden; }
-.day-header { background: linear-gradient(90deg, #2C3E50, #34495E); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-.day-header h3 { color: white; margin: 0; font-size: 1.3em; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 4px; font-size: 0.8em; font-weight: bold; white-space: nowrap; }
+.tag-porc { background: #FADBD8; color: #E74C3C; }
+.tag-boeuf { background: #D6EAF8; color: #2E86C1; }
+.tag-brebis { background: #D5F5E3; color: #27AE60; }
+.tag-mix { background: #FDEBD0; color: #B9770E; }
+
+/* Day block */
+.day-block { border: 1px solid #e1e5eb; border-radius: 10px; margin: 25px 0; overflow: hidden; break-inside: avoid; }
+.day-header { background: linear-gradient(90deg, #2C3E50, #34495E); color: white; padding: 16px 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.day-header h3 { color: white; margin: 0; font-size: 1.25em; }
 .day-header .day-stats { font-size: 0.95em; opacity: 0.95; }
 .day-header .day-stats span { margin-left: 15px; }
-.day-body { padding: 15px 20px; }
-.route-group { background: #f8f9fa; padding: 10px 15px; margin: 10px 0; border-left: 3px solid #E67E22; border-radius: 4px; font-size: 0.92em; }
-.route-group strong { color: #E67E22; }
-.marfisi-note { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 0.75em; background: #FCE4D6; color: #B45309; margin-left: 4px; font-weight: bold; }
-.legend { background: #fafbfc; border: 1px solid #e1e5eb; border-radius: 8px; padding: 15px; margin: 15px 0; font-size: 0.92em; }
-.legend h4 { margin-bottom: 8px; color: #34495E; }
-.legend ul { list-style: none; padding: 0; }
-.legend li { margin: 4px 0; }
+.day-body { padding: 18px 22px; background: #fafbfc; }
+
+/* Truck card */
+.truck-card { background: white; border-radius: 8px; border: 1px solid #e1e5eb; margin: 12px 0; overflow: hidden; break-inside: avoid; border-left: 5px solid #ccc; }
+.truck-card.porc { border-left-color: #E74C3C; }
+.truck-card.boeuf { border-left-color: #2E86C1; }
+.truck-card.brebis { border-left-color: #27AE60; }
+.truck-card.mix { border-left-color: #E67E22; }
+.truck-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: #f8f9fa; border-bottom: 1px solid #eee; flex-wrap: wrap; gap: 10px; }
+.truck-id { font-family: 'Consolas','Courier New', monospace; font-weight: bold; color: #2C3E50; font-size: 1.05em; letter-spacing: 0.5px; }
+.truck-totals { font-size: 0.95em; color: #2C3E50; font-weight: bold; }
+.truck-totals .fill { color: #7F8C8D; font-weight: normal; font-size: 0.9em; margin-left: 6px; }
+.truck-routing { background: #EBF5FB; color: #2E86C1; padding: 4px 12px; border-radius: 15px; font-size: 0.88em; font-weight: bold; }
+.truck-routing.direct { background: #D5F5E3; color: #27AE60; }
+.truck-routing.marfisi { background: #FCE4D6; color: #B9770E; }
+.truck-routing.macon { background: #E8DAEF; color: #8E44AD; }
+.truck-routing.ramasse_macon { background: #FDEBD0; color: #B9770E; }
+.truck-routing.ramasse_direct { background: #D1F2EB; color: #148F77; }
+.truck-body { padding: 12px 16px; }
+.truck-route { font-size: 1.05em; margin-bottom: 8px; color: #2C3E50; }
+.truck-route .arrow { color: #E67E22; font-weight: bold; margin: 0 6px; }
+.truck-route .location { font-weight: bold; }
+.truck-lots { font-size: 0.92em; margin: 8px 0; }
+.truck-lots ul { list-style: none; padding-left: 0; margin-top: 4px; }
+.truck-lots li { padding: 3px 0 3px 18px; position: relative; color: #34495E; }
+.truck-lots li::before { content: "•"; color: #E67E22; position: absolute; left: 6px; font-weight: bold; }
+.truck-lots .tonnes { color: #2E86C1; font-weight: bold; }
+.truck-lots .from { color: #7F8C8D; font-size: 0.9em; font-style: italic; }
+.truck-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; padding-top: 10px; border-top: 1px dashed #eee; font-size: 0.88em; margin-top: 8px; }
+.truck-meta-item .label { color: #7F8C8D; font-weight: bold; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.3px; }
+.truck-meta-item .content { color: #34495E; margin-top: 2px; }
+.rule-chip { display: inline-block; background: #EAECEE; color: #2C3E50; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; font-weight: bold; margin-right: 4px; margin-bottom: 3px; font-family: 'Consolas', monospace; }
+.rule-chip:hover { background: #E67E22; color: white; }
+.rule-chip a { color: inherit; text-decoration: none; }
+
 @media print {
   body { background: white; }
-  .section, .day-block { box-shadow: none; break-inside: avoid; }
+  .section, .day-block, .truck-card { box-shadow: none; break-inside: avoid; }
   .header .nav { display: none; }
+  .truck-card { page-break-inside: avoid; }
+}
+@media (max-width: 700px) {
+  .truck-header { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 </style>
 </head>
 <body>
     <div class="header">
-        <h1>Planning Semaine du 21/04 au 25/04/2026</h1>
-        <div class="subtitle">Prévision de ramassage et livraison — Bigard vers Italie</div>
-        <div class="subtitle">Préparé pour Dominique Page — DPO / Groupe Olano</div>
+        <h1>Planning Camions — Semaine du 21/04 au 25/04/2026</h1>
+        <div class="subtitle">Pour chaque jour, chaque camion est assigné : origine, destinations, lots, règles</div>
+        <div class="subtitle" style="margin-top:5px;">Préparé pour Dominique Page — DPO / Groupe Olano</div>
         <div class="nav">
             <a href="index.html">Accueil</a>
             <a href="analyse.html">Analyse</a>
             <a href="recommandations.html">Recommandations</a>
-            <a href="planning_semaine.html" class="active">Planning semaine</a>
+            <a href="planning_semaine.html" class="active">Planning camions</a>
             <a href="regles_metier.html">Règles métier</a>
         </div>
     </div>
@@ -79,24 +111,20 @@ tr:hover { background: #f8f9fa; }
         
     <div class="metrics-grid">
         <div class="metric-card accent">
-            <div class="value">674 t</div>
-            <div class="label">Tonnage prévu sur la semaine</div>
+            <div class="value">48</div>
+            <div class="label">Camions sur la semaine</div>
         </div>
         <div class="metric-card blue">
-            <div class="value">72</div>
-            <div class="label">Camions prévus (arrondi sup.)</div>
-        </div>
-        <div class="metric-card red">
-            <div class="value">323 t</div>
-            <div class="label">Porc</div>
-        </div>
-        <div class="metric-card">
-            <div class="value" style="color:#2E86C1;">336 t</div>
-            <div class="label">Bœuf</div>
+            <div class="value">584 t</div>
+            <div class="label">Tonnage total</div>
         </div>
         <div class="metric-card green">
-            <div class="value">15 t</div>
-            <div class="label">Brebis</div>
+            <div class="value">25</div>
+            <div class="label">Camions directs Italie</div>
+        </div>
+        <div class="metric-card">
+            <div class="value" style="color:#8E44AD;">23</div>
+            <div class="label">Camions via Hub Mâcon</div>
         </div>
     </div>
     
@@ -107,172 +135,1611 @@ tr:hover { background: #f8f9fa; }
     <table>
         <tr>
             <th>Jour</th>
-            <th style='text-align:center;'>Nb abattoirs</th>
-            <th style='text-align:right;'>Tonnage prévu</th>
             <th style='text-align:center;'>Camions</th>
-            <th style='text-align:right;'>Porc</th>
-            <th style='text-align:right;'>Bœuf</th>
-            <th style='text-align:right;'>Brebis</th>
+            <th style='text-align:right;'>Tonnage</th>
+            <th style='text-align:center;'>Direct Italie</th>
+            <th style='text-align:center;'>Via Hub Mâcon</th>
         </tr>
-        <tr><td><strong>Lundi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>21/04</span></td><td style='text-align:center;'>2</td><td style='text-align:right;'>16.6 t</td><td style='text-align:center;'><strong>2</strong></td><td style='text-align:right;'>15.4 t</td><td style='text-align:right;'>1.2 t</td><td style='text-align:right;'>0.0 t</td></tr><tr><td><strong>Mardi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>22/04</span></td><td style='text-align:center;'>13</td><td style='text-align:right;'>143.8 t</td><td style='text-align:center;'><strong>15</strong></td><td style='text-align:right;'>78.5 t</td><td style='text-align:right;'>57.4 t</td><td style='text-align:right;'>7.9 t</td></tr><tr><td><strong>Mercredi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>23/04</span></td><td style='text-align:center;'>16</td><td style='text-align:right;'>205.5 t</td><td style='text-align:center;'><strong>21</strong></td><td style='text-align:right;'>80.9 t</td><td style='text-align:right;'>124.6 t</td><td style='text-align:right;'>0.0 t</td></tr><tr><td><strong>Jeudi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>24/04</span></td><td style='text-align:center;'>9</td><td style='text-align:right;'>87.5 t</td><td style='text-align:center;'><strong>11</strong></td><td style='text-align:right;'>57.7 t</td><td style='text-align:right;'>22.9 t</td><td style='text-align:right;'>6.8 t</td></tr><tr><td><strong>Vendredi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>25/04</span></td><td style='text-align:center;'>19</td><td style='text-align:right;'>220.6 t</td><td style='text-align:center;'><strong>23</strong></td><td style='text-align:right;'>90.7 t</td><td style='text-align:right;'>129.9 t</td><td style='text-align:right;'>0.0 t</td></tr>
+        <tr><td><strong>Lundi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>21/04</span></td><td style='text-align:center;'><strong>1</strong></td><td style='text-align:right;'>11.2 t</td><td style='text-align:center;'>0</td><td style='text-align:center;'>1</td></tr><tr><td><strong>Mardi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>22/04</span></td><td style='text-align:center;'><strong>12</strong></td><td style='text-align:right;'>155.7 t</td><td style='text-align:center;'>8</td><td style='text-align:center;'>4</td></tr><tr><td><strong>Mercredi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>23/04</span></td><td style='text-align:center;'><strong>13</strong></td><td style='text-align:right;'>154.9 t</td><td style='text-align:center;'>5</td><td style='text-align:center;'>8</td></tr><tr><td><strong>Jeudi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>24/04</span></td><td style='text-align:center;'><strong>6</strong></td><td style='text-align:right;'>64.5 t</td><td style='text-align:center;'>3</td><td style='text-align:center;'>3</td></tr><tr><td><strong>Vendredi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>25/04</span></td><td style='text-align:center;'><strong>16</strong></td><td style='text-align:right;'>198.0 t</td><td style='text-align:center;'>9</td><td style='text-align:center;'>7</td></tr>
     </table>
     
             <div class="highlight-green">
-                <strong>À imprimer :</strong> cette feuille peut servir de planning de base
-                pour la semaine. Chaque jour est détaillé plus bas avec les abattoirs, le
-                tonnage estimé, le nombre de camions et le routage recommandé.
+                <strong>Lecture :</strong> cette feuille résume le nombre total de camions par
+                jour et leur répartition direct / via hub. Le détail de chaque camion est
+                présenté plus bas.
             </div>
         </div>
 
         
-    <div class="legend">
-        <h4>Comment lire ce document</h4>
-        <ul>
-            <li><strong>Tonnage estimé</strong> : moyenne historique janvier-février 2026 sur 9 semaines.
-                Le "max attendu" correspond au 90ᵉ percentile (cas chargé, +20% en pratique).</li>
-            <li><strong>Camions</strong> : arrondi au supérieur sur une cible de 20 t/camion
-                (capacité 22-23 t maxi, marge de sécurité 20 %).</li>
-            <li><strong>Routage</strong> : <em>Direct</em> = camion complet de l'abattoir au client.
-                <em>Hub Mâcon</em> = chargement partiel consolidé à Mâcon.
-                Les porcs ne transitent <u>jamais</u> par Mâcon (marge trop faible).</li>
-            <li><strong>Fréquence</strong> :
-                <span class="conf-haute">✅ HAUTE</span> = pattern stable, présent &gt; 75 % des semaines et variabilité &lt; 50 %.
-                <span class="conf-moyenne">⚠️ MOYENNE</span> = pattern moyennement stable.
-                <span class="conf-faible">❓ FAIBLE</span> = à vérifier avec le client, historique peu fiable.</li>
-            <li><strong>MARFISI (1ère livraison)</strong> : le client Marfisi (Treglio) doit être
-                livré en premier sur la tournée. Accepte bœuf + brebis dans le même camion (exception).</li>
+    <div class="section">
+        <h2>Comment lire ce planning</h2>
+        <p>Pour chaque jour, le plan liste <strong>chaque camion</strong> individuellement.
+        Chaque camion indique :</p>
+        <ul style="margin: 10px 0 10px 30px;">
+            <li>Ses <strong>origines</strong> (1 ou plusieurs abattoirs pour les ramassages groupés)</li>
+            <li>Ses <strong>destinations</strong> (client italien ou hub Mâcon pour consolidation)</li>
+            <li>Le <strong>détail des lots</strong> : client, tonnage, trajet réel</li>
+            <li>Le <strong>taux de remplissage</strong> par rapport à la cible de 20 t (R01)</li>
+            <li>Les <strong>règles métier</strong> appliquées (cliquables, lien vers le document de référence)</li>
+            <li>La <strong>justification</strong> du choix de routage</li>
         </ul>
+        <div class="highlight">
+            <strong>Type de routage :</strong>
+            <ul style="margin: 8px 0 0 25px;">
+                <li><span class="truck-routing direct">Direct Italie</span> — camion qui part d'un (ou plusieurs)
+                    abattoir(s) et livre directement en Italie. Priorité quand le camion est plein (≥ 15 t).</li>
+                <li><span class="truck-routing marfisi">Marfisi (1ère livraison)</span> — client Marfisi à
+                    Treglio, exception autorisant bœuf + brebis (R06) avec livraison prioritaire (R07).</li>
+                <li><span class="truck-routing ramasse_direct">Ramasse + Direct</span> — plusieurs abattoirs
+                    d'un même groupe (≤ 400 km cumulé, R08) chargés puis livraison directe en Italie.</li>
+                <li><span class="truck-routing ramasse_macon">Ramasse → Mâcon</span> — petits lots d'un groupe
+                    de ramasse déposés au hub Mâcon pour consolidation avec d'autres partiels (R13).</li>
+                <li><span class="truck-routing macon">Vers Mâcon</span> — petit lot isolé déposé au hub pour
+                    consolidation (R13).</li>
+            </ul>
+        </div>
     </div>
     
 
         <div class="section">
             <h2>Plan détaillé jour par jour</h2>
             
-        <div class="day-block">
-            <div class="day-header">
-                <h3>Lundi 21 avril 2026</h3>
-                <div class="day-stats">
-                    <span><strong>16.6 t</strong></span>
-                    <span><strong>2 camions</strong></span>
-                    <span>2 abattoirs</span>
+    <div class="day-block">
+        <div class="day-header">
+            <h3>Lundi 21 avril 2026</h3>
+            <div class="day-stats">
+                <span><strong>11.2 t</strong></span>
+                <span><strong>1 camions</strong></span>
+                
+                <span>🐂 1</span>
+                
+            </div>
+        </div>
+        <div class="day-body">
+            
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T1</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">11.2 t <span class="fill">(56 % de 20 t)</span></span>
+            <span class="truck-routing macon">Vers Hub Mâcon (consolidation)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Egletons</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Ice Srl</strong> <span class='tonnes'>11.18 t</span> <span class='from'>— Egletons → Momo</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : petits lots depuis Egletons → déposés au hub Mâcon pour consolidation avec d'autres partiels (R13).</div>
                 </div>
             </div>
-            <div class="day-body">
-                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Fréquence</th></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>15.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 19.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
-            </div>
-        </div>
-        
-        <div class="day-block">
-            <div class="day-header">
-                <h3>Mardi 22 avril 2026</h3>
-                <div class="day-stats">
-                    <span><strong>143.8 t</strong></span>
-                    <span><strong>15 camions</strong></span>
-                    <span>13 abattoirs</span>
-                </div>
-            </div>
-            <div class="day-body">
-                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Fréquence</th></tr><tr><td><strong>LA ROCHE SUR YON</strong><span class="marfisi-note">MARFISI (1ère livraison)</span><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>19.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 25.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>550 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>QUIMPERLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>17.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 29.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>820 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>CHATAIGNERAIE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>520 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>CASTRES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.2 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>COUTANCES</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 2.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 3.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>BICHON LE VIGEANT</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-brebis">BREBIS</span></td><td style='text-align:right;'>7.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 9.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (Marfisi)</td><td style='text-align:center;'>500 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>34.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 52.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>28.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 37.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>15.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 20.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
-            </div>
-        </div>
-        
-        <div class="day-block">
-            <div class="day-header">
-                <h3>Mercredi 23 avril 2026</h3>
-                <div class="day-stats">
-                    <span><strong>205.5 t</strong></span>
-                    <span><strong>21 camions</strong></span>
-                    <span>16 abattoirs</span>
-                </div>
-            </div>
-            <div class="day-body">
-                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Fréquence</th></tr><tr><td><strong>QUIMPERLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>47.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 63.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>3</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>820 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>CHATAIGNERAIE</strong><span class="marfisi-note">MARFISI (1ère livraison)</span><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>16.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 23.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>520 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>CASTRES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>12.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 14.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>LA ROCHE SUR YON</strong><span class="marfisi-note">MARFISI (1ère livraison)</span><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>8.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 11.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>CUISEAUX</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>7.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 10.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>50 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>METZ</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>6.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 10.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>CHERRE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>5.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>5.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>5.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>MONTAUBAN DE BRETAGNE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 2.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>750 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>CODEVIA</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>0.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>31.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 40.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>28.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 37.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>21.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 21.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
-            </div>
-        </div>
-        
-        <div class="day-block">
-            <div class="day-header">
-                <h3>Jeudi 24 avril 2026</h3>
-                <div class="day-stats">
-                    <span><strong>87.5 t</strong></span>
-                    <span><strong>11 camions</strong></span>
-                    <span>9 abattoirs</span>
-                </div>
-            </div>
-            <div class="day-body">
-                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Fréquence</th></tr><tr><td><strong>CUISEAUX</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>8.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 12.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>50 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.5 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>CHATAIGNERAIE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 2.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>520 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 3.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>0.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>BICHON LE VIGEANT</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-brebis">BREBIS</span></td><td style='text-align:right;'>6.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (Marfisi)</td><td style='text-align:center;'>500 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>37.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 56.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>20.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 21.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
-            </div>
-        </div>
-        
-        <div class="day-block">
-            <div class="day-header">
-                <h3>Vendredi 25 avril 2026</h3>
-                <div class="day-stats">
-                    <span><strong>220.6 t</strong></span>
-                    <span><strong>23 camions</strong></span>
-                    <span>19 abattoirs</span>
-                </div>
-            </div>
-            <div class="day-body">
-                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Fréquence</th></tr><tr><td><strong>CHATAIGNERAIE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>21.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 29.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>520 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>CHERRE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>21.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 29.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>480 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>18.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 18.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>550 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>LA ROCHE SUR YON</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>15.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 22.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>550 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>13.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 16.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (consolidation)</td><td style='text-align:center;'>600 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>QUIMPERLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>9.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 16.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>820 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.2 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>METZ</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>RUNGIS</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>CASTRES</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.5 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>CUISEAUX</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>50 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>COUTANCES</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>700 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>MONTAUBAN DE BRETAGNE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.5 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 3.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>750 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>34.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 57.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>27.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 35.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>15.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 15.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>HOLTZHEIM</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>11.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 11.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>PORCGROS</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>3.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr></table>
-            </div>
-        </div>
-        
-        </div>
-
-        
-    <div class="section">
-        <h2>Routes de ramasse bœuf (rappel)</h2>
-        <p>Pour les chargements partiels (&lt; 15 t) envoyés vers le hub Mâcon, regrouper
-        les abattoirs proches selon les 4 routes identifiées :</p>
-        <table>
-            <tr><th>Route</th><th>Abattoirs</th><th>Logique</th></tr>
-            <tr><td><strong>OUEST-VENDÉE</strong></td><td>La Roche sur Yon → Châtaigneraie → Cholet → Cherré</td><td>Camion dédié 2-3 fois/semaine vers Mâcon</td></tr>
-            <tr><td><strong>NORMANDIE</strong></td><td>Coutances → Gacé → Sablé</td><td>1-2 camions/semaine</td></tr>
-            <tr><td><strong>EST</strong></td><td>Metz → Vitry → Rungis</td><td>1 camion/semaine</td></tr>
-            <tr><td><strong>BRETAGNE-OUEST</strong></td><td>Quimperlé → Guingamp → Montauban</td><td>2-3 camions/semaine (gros volume)</td></tr>
-        </table>
-        <div class="highlight">
-            <strong>Règle des 400 km :</strong> maximum 2 points de ramassage par jour
-            s'ils sont dans un rayon de 400 km (≈ 6-7 h de conduite).
-            Au-delà, étaler sur 2 jours (flexibilité J+1).
         </div>
     </div>
     
+        </div>
+    </div>
+    
+    <div class="day-block">
+        <div class="day-header">
+            <h3>Mardi 22 avril 2026</h3>
+            <div class="day-stats">
+                <span><strong>155.7 t</strong></span>
+                <span><strong>12 camions</strong></span>
+                <span>🐷 4</span>
+                <span>🐂 7</span>
+                <span>🐑 1</span>
+            </div>
+        </div>
+        <div class="day-body">
+            
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T1</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">21.1 t <span class="fill">(105 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Evron</span>
+                <span class="arrow">→</span>
+                <span class="location">Castelvetro Di Modena / Spilamberto</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Global Carni</strong> <span class='tonnes'>15.98 t</span> <span class='from'>— Evron → Spilamberto</span></li><li><strong>Industria Salumi Simonini</strong> <span class='tonnes'>5.11 t</span> <span class='from'>— Evron → Castelvetro Di Modena</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T2</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">21.0 t <span class="fill">(105 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chateauneuf Du Faou</span>
+                <span class="arrow">→</span>
+                <span class="location">Campagna</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Coati F. Lli S.P.A</strong> <span class='tonnes'>21.01 t</span> <span class='from'>— Chateauneuf Du Faou → Campagna</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T3</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">20.8 t <span class="fill">(104 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chateauneuf Du Faou</span>
+                <span class="arrow">→</span>
+                <span class="location">San Giovanni Lupatoto</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Pastificio Rana Spa</strong> <span class='tonnes'>20.76 t</span> <span class='from'>— Chateauneuf Du Faou → San Giovanni Lupatoto</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T4</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">15.7 t <span class="fill">(79 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chateauneuf Du Faou</span>
+                <span class="arrow">→</span>
+                <span class="location">Castenedolo / Citta Di Castello / Pontedera / Turin / Usmate Velate</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 5 lots
+                <ul><li><strong>Damp Scrl Usmate</strong> <span class='tonnes'>5.09 t</span> <span class='from'>— Chateauneuf Du Faou → Usmate Velate</span></li><li><strong>Raspini Spa</strong> <span class='tonnes'>3.99 t</span> <span class='from'>— Chateauneuf Du Faou → Turin</span></li><li><strong>Italbrix Spa</strong> <span class='tonnes'>3.20 t</span> <span class='from'>— Chateauneuf Du Faou → Castenedolo</span></li><li><strong>Centro Freschi</strong> <span class='tonnes'>2.15 t</span> <span class='from'>— Chateauneuf Du Faou → Pontedera</span></li><li><strong>L'Abbondanza Srl</strong> <span class='tonnes'>1.31 t</span> <span class='from'>— Chateauneuf Du Faou → Citta Di Castello</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card mix">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T5</span>
+            <span class="tag tag-mix">BŒUF + BREBIS</span>
+            <span class="truck-totals">14.0 t <span class="fill">(70 % de 20 t)</span></span>
+            <span class="truck-routing marfisi">Direct — Marfisi (1ère livraison)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Bichon Le Vigeant + La Roche Sur Yon</span>
+                <span class="arrow">→</span>
+                <span class="location">Treglio</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Marfisi Carni Srl</strong> <span class='tonnes'>9.38 t</span> <span class='from'>— La Roche Sur Yon → Treglio (Italie)</span></li><li><strong>Marfisi Carni Srl</strong> <span class='tonnes'>4.58 t</span> <span class='from'>— Bichon Le Vigeant → Treglio</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R06">R06</a></span><span class="rule-chip"><a href="regles_metier.html#R07">R07</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Exception Marfisi : bœuf et brebis autorisés dans le même camion (R06). Treglio doit être la 1ère livraison de la tournée (R07).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card brebis">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T6</span>
+            <span class="tag tag-brebis">BREBIS</span>
+            <span class="truck-totals">4.0 t <span class="fill">(20 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie — brebis isolées</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Bichon Le Vigeant</span>
+                <span class="arrow">→</span>
+                <span class="location">Carpineto Sinello / Pianella</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Bellier Srl</strong> <span class='tonnes'>2.20 t</span> <span class='from'>— Bichon Le Vigeant → Pianella</span></li><li><strong>Tornese S.R.L.</strong> <span class='tonnes'>1.81 t</span> <span class='from'>— Bichon Le Vigeant → Carpineto Sinello</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R05">R05</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Brebis transportées séparément (R05 — odeur caractéristique non acceptée par les autres clients).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T7</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">20.0 t <span class="fill">(100 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Quimperle</span>
+                <span class="arrow">→</span>
+                <span class="location">Tione Di Trento</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Furlani Carni Srl</strong> <span class='tonnes'>20.00 t</span> <span class='from'>— Quimperle → Tione Di Trento</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : volume suffisant depuis Quimperle vers Tione Di Trento pour un camion direct (20.0 t).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T8</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">2.6 t <span class="fill">(13 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie (multi-livraisons)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Castres</span>
+                <span class="arrow">→</span>
+                <span class="location">Florence / Montemurlo / Pontassieve</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 3 lots
+                <ul><li><strong>Gerini S.P.A.</strong> <span class='tonnes'>1.17 t</span> <span class='from'>— Castres → Pontassieve</span></li><li><strong>Centro Carni Alimentari</strong> <span class='tonnes'>0.82 t</span> <span class='from'>— Castres → Florence</span></li><li><strong>Geriba Srl</strong> <span class='tonnes'>0.62 t</span> <span class='from'>— Castres → Montemurlo</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R10">R10</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf Castres : livraison directe multi-clients. Castres est géographiquement isolé, le transit par Mâcon n'est pas rentable (R10).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T9</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">17.8 t <span class="fill">(89 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chataigneraie + La Roche Sur Yon</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 3 lots
+                <ul><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>10.51 t</span> <span class='from'>— La Roche Sur Yon → Pietrasanta</span></li><li><strong>Centro Freschi</strong> <span class='tonnes'>4.12 t</span> <span class='from'>— La Roche Sur Yon → Pontedera</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.14 t</span> <span class='from'>— Chataigneraie → Gorla Maggiore</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Gorla Maggiore, Pietrasanta, Pontedera.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T10</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">3.1 t <span class="fill">(16 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse EST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Vitry</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>3.12 t</span> <span class='from'>— Vitry → Pisa</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage EST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Pisa.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T11</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">0.9 t <span class="fill">(4 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse NORMANDIE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Gace</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Damp Scrl Usmate</strong> <span class='tonnes'>0.88 t</span> <span class='from'>— Gace → Usmate Velate</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage NORMANDIE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Usmate Velate.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T12</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">14.8 t <span class="fill">(74 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse BRETAGNE-OUEST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Quimperle</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Fridocks Magazzini</strong> <span class='tonnes'>14.79 t</span> <span class='from'>— Quimperle → Pozzolo Formigaro</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage BRETAGNE-OUEST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Pozzolo Formigaro.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="day-block">
+        <div class="day-header">
+            <h3>Mercredi 23 avril 2026</h3>
+            <div class="day-stats">
+                <span><strong>154.9 t</strong></span>
+                <span><strong>13 camions</strong></span>
+                <span>🐷 2</span>
+                <span>🐂 11</span>
+                
+            </div>
+        </div>
+        <div class="day-body">
+            
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T1</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">19.9 t <span class="fill">(99 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Evron</span>
+                <span class="arrow">→</span>
+                <span class="location">Calcinato / Vignola</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Camac Vignola Srl</strong> <span class='tonnes'>17.08 t</span> <span class='from'>— Evron → Vignola</span></li><li><strong>Dia Spa</strong> <span class='tonnes'>2.80 t</span> <span class='from'>— Evron → Calcinato</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T2</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">21.1 t <span class="fill">(106 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chateauneuf Du Faou</span>
+                <span class="arrow">→</span>
+                <span class="location">Castelnuovo Rangone</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Europig Montale Srl</strong> <span class='tonnes'>21.11 t</span> <span class='from'>— Chateauneuf Du Faou → Castelnuovo Rangone</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T3</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">5.7 t <span class="fill">(29 % de 20 t)</span></span>
+            <span class="truck-routing marfisi">Direct — Marfisi (1ère livraison)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Cuiseaux</span>
+                <span class="arrow">→</span>
+                <span class="location">Treglio</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Marfisi Carni Srl</strong> <span class='tonnes'>5.70 t</span> <span class='from'>— Cuiseaux → Treglio (Italie)</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R06">R06</a></span><span class="rule-chip"><a href="regles_metier.html#R07">R07</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Exception Marfisi : bœuf et brebis autorisés dans le même camion (R06). Treglio doit être la 1ère livraison de la tournée (R07).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T4</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">20.0 t <span class="fill">(100 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Quimperle</span>
+                <span class="arrow">→</span>
+                <span class="location">Vignola</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Camac Vignola Srl</strong> <span class='tonnes'>19.99 t</span> <span class='from'>— Quimperle → Vignola</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : volume suffisant depuis Quimperle vers Vignola pour un camion direct (20.0 t).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T5</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">11.9 t <span class="fill">(59 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie (multi-livraisons)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Castres</span>
+                <span class="arrow">→</span>
+                <span class="location">Bargagli / Camaiore / Castiglion Fiorentino / Cerro Maggiore / Coreglia Antelminelli / Genoa / Imola / Italy / Mapello / Turin</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 10 lots
+                <ul><li><strong>Torcigliani Carni Srl</strong> <span class='tonnes'>2.69 t</span> <span class='from'>— Castres → Camaiore</span></li><li><strong>Dalf Srl</strong> <span class='tonnes'>2.28 t</span> <span class='from'>— Castres → Genoa</span></li><li><strong>Suicarni Castroncello Snc</strong> <span class='tonnes'>1.79 t</span> <span class='from'>— Castres → Castiglion Fiorentino</span></li><li><strong>Cart Srl</strong> <span class='tonnes'>1.22 t</span> <span class='from'>— Castres → Bargagli</span></li><li><strong>Marchiante Spa</strong> <span class='tonnes'>0.83 t</span> <span class='from'>— Castres → Cerro Maggiore</span></li><li><strong>Grignan Beef Snv</strong> <span class='tonnes'>0.81 t</span> <span class='from'>— Castres → Italy</span></li><li><strong>Buzzi Spa</strong> <span class='tonnes'>0.76 t</span> <span class='from'>— Castres → Mapello</span></li><li><strong>F.Lli Nutini Srl</strong> <span class='tonnes'>0.67 t</span> <span class='from'>— Castres → Coreglia Antelminelli</span></li><li><strong>Clai Soc.Coop Agricola</strong> <span class='tonnes'>0.61 t</span> <span class='from'>— Castres → Imola</span></li><li><strong>L.F.C. Di Roggero P. Et C.</strong> <span class='tonnes'>0.23 t</span> <span class='from'>— Castres → Turin</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R10">R10</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf Castres : livraison directe multi-clients. Castres est géographiquement isolé, le transit par Mâcon n'est pas rentable (R10).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T6</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">1.1 t <span class="fill">(6 % de 20 t)</span></span>
+            <span class="truck-routing macon">Vers Hub Mâcon (consolidation)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Cuiseaux</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>1.12 t</span> <span class='from'>— Cuiseaux → Gorla Maggiore</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : petits lots depuis Cuiseaux → déposés au hub Mâcon pour consolidation avec d'autres partiels (R13).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T7</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">17.6 t <span class="fill">(88 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chataigneraie + Cherre</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Centro Freschi</strong> <span class='tonnes'>11.84 t</span> <span class='from'>— Chataigneraie → Pontedera</span></li><li><strong>Pac/Dynamic Materie Prime</strong> <span class='tonnes'>5.71 t</span> <span class='from'>— Cherre → Fiano Romano</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Fiano Romano, Gorla Maggiore, Ospedaletto Lodigiano....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T8</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">15.4 t <span class="fill">(77 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chataigneraie + La Roche Sur Yon</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 4 lots
+                <ul><li><strong>Esselunga Spa</strong> <span class='tonnes'>4.96 t</span> <span class='from'>— La Roche Sur Yon → Pioltello</span></li><li><strong>Carnitalia</strong> <span class='tonnes'>4.37 t</span> <span class='from'>— Chataigneraie → Ospedaletto Lodigiano</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.08 t</span> <span class='from'>— Chataigneraie → Gorla Maggiore</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.04 t</span> <span class='from'>— La Roche Sur Yon → Gorla Maggiore</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Fiano Romano, Gorla Maggiore, Ospedaletto Lodigiano....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T9</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">11.8 t <span class="fill">(59 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse EST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Metz + Vitry</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 5 lots
+                <ul><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.69 t</span> <span class='from'>— Metz → Gorla Maggiore</span></li><li><strong>Newco Juvica Srl</strong> <span class='tonnes'>3.37 t</span> <span class='from'>— Vitry → Ghemme</span></li><li><strong>Ice Srl</strong> <span class='tonnes'>1.84 t</span> <span class='from'>— Vitry → Momo</span></li><li><strong>D&D Di Taricco Davide Biag</strong> <span class='tonnes'>1.56 t</span> <span class='from'>— Vitry → Marene</span></li><li><strong>Glorioso Spa</strong> <span class='tonnes'>1.36 t</span> <span class='from'>— Vitry → Cavour</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage EST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Cavour, Ghemme, Gorla Maggiore....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T10</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">20.8 t <span class="fill">(104 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse BRETAGNE-OUEST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Quimperle</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 3 lots
+                <ul><li><strong>Salumificio Sandri S.R.L.</strong> <span class='tonnes'>7.61 t</span> <span class='from'>— Quimperle → Riparbella</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>6.99 t</span> <span class='from'>— Quimperle → Gorla Maggiore</span></li><li><strong>Juvica Srl Ghemme</strong> <span class='tonnes'>6.25 t</span> <span class='from'>— Quimperle → Ghemme</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage BRETAGNE-OUEST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ghemme, Gorla Maggiore, Riparbella.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T11</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">4.2 t <span class="fill">(21 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse BRETAGNE-OUEST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Quimperle</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Newco Juvica Srl</strong> <span class='tonnes'>4.17 t</span> <span class='from'>— Quimperle → Ghemme</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage BRETAGNE-OUEST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ghemme, Gorla Maggiore, Riparbella.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T12</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">4.9 t <span class="fill">(25 % de 20 t)</span></span>
+            <span class="truck-routing macon">Vers Hub Mâcon (consolidation)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Feignies</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Ice Srl</strong> <span class='tonnes'>2.98 t</span> <span class='from'>— Feignies → Momo</span></li><li><strong>Newco Juvica Srl</strong> <span class='tonnes'>1.96 t</span> <span class='from'>— Feignies → Ghemme (No)</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : petits lots depuis Feignies → déposés au hub Mâcon pour consolidation avec d'autres partiels (R13).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T13</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">0.4 t <span class="fill">(2 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse NORMANDIE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Gace</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Lombardo G & C Srl</strong> <span class='tonnes'>0.43 t</span> <span class='from'>— Gace → San Filippo Del Mela</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage NORMANDIE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers San Filippo Del Mela.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="day-block">
+        <div class="day-header">
+            <h3>Jeudi 24 avril 2026</h3>
+            <div class="day-stats">
+                <span><strong>64.5 t</strong></span>
+                <span><strong>6 camions</strong></span>
+                <span>🐷 2</span>
+                <span>🐂 3</span>
+                <span>🐑 1</span>
+            </div>
+        </div>
+        <div class="day-body">
+            
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T1</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">21.5 t <span class="fill">(108 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">St Brice En Cogles</span>
+                <span class="arrow">→</span>
+                <span class="location">Spilamberto</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Global Carni Spa</strong> <span class='tonnes'>21.51 t</span> <span class='from'>— St Brice En Cogles → Spilamberto</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T2</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">21.4 t <span class="fill">(107 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">St Brice En Cogles</span>
+                <span class="arrow">→</span>
+                <span class="location">Castelnuovo Rangone</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Alcar Uno Spa</strong> <span class='tonnes'>21.35 t</span> <span class='from'>— St Brice En Cogles → Castelnuovo Rangone</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card brebis">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T3</span>
+            <span class="tag tag-brebis">BREBIS</span>
+            <span class="truck-totals">7.1 t <span class="fill">(35 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie — brebis isolées</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Bichon Le Vigeant</span>
+                <span class="arrow">→</span>
+                <span class="location">Pianella / Pretoro</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Bellier Srl</strong> <span class='tonnes'>4.29 t</span> <span class='from'>— Bichon Le Vigeant → Pianella</span></li><li><strong>Soalca</strong> <span class='tonnes'>2.77 t</span> <span class='from'>— Bichon Le Vigeant → Pretoro</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R05">R05</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Brebis transportées séparément (R05 — odeur caractéristique non acceptée par les autres clients).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T4</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">8.0 t <span class="fill">(40 % de 20 t)</span></span>
+            <span class="truck-routing macon">Vers Hub Mâcon (consolidation)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Cuiseaux</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 3 lots
+                <ul><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.30 t</span> <span class='from'>— Cuiseaux → Gorla Maggiore</span></li><li><strong>A.B.F. Srl</strong> <span class='tonnes'>2.71 t</span> <span class='from'>— Cuiseaux → Londa</span></li><li><strong>Eurospin Tirrenica Spa</strong> <span class='tonnes'>2.00 t</span> <span class='from'>— Cuiseaux → Magione</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : petits lots depuis Cuiseaux → déposés au hub Mâcon pour consolidation avec d'autres partiels (R13).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T5</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">1.6 t <span class="fill">(8 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chataigneraie</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Soc Coop Floridia Carni</strong> <span class='tonnes'>1.61 t</span> <span class='from'>— Chataigneraie → Floridia</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Floridia.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T6</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">5.0 t <span class="fill">(25 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse EST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Vitry</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Ala Carni Sal</strong> <span class='tonnes'>4.98 t</span> <span class='from'>— Vitry → Ala</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage EST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ala.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+    <div class="day-block">
+        <div class="day-header">
+            <h3>Vendredi 25 avril 2026</h3>
+            <div class="day-stats">
+                <span><strong>198.0 t</strong></span>
+                <span><strong>16 camions</strong></span>
+                <span>🐷 5</span>
+                <span>🐂 11</span>
+                
+            </div>
+        </div>
+        <div class="day-body">
+            
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T1</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">20.2 t <span class="fill">(101 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Evron</span>
+                <span class="arrow">→</span>
+                <span class="location">Castelnuovo Rangone / Langhirano</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Alfe Carni Srl</strong> <span class='tonnes'>10.11 t</span> <span class='from'>— Evron → Langhirano</span></li><li><strong>Alcar Uno Spa</strong> <span class='tonnes'>10.05 t</span> <span class='from'>— Evron → Castelnuovo Rangone</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T2</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">19.3 t <span class="fill">(96 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Evron</span>
+                <span class="arrow">→</span>
+                <span class="location">Calcinato / Castelnuovo Rangone / Spilamberto</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 3 lots
+                <ul><li><strong>Villani S.P.A.(Cimabue)</strong> <span class='tonnes'>10.03 t</span> <span class='from'>— Evron → Castelnuovo Rangone</span></li><li><strong>Global Carni</strong> <span class='tonnes'>6.43 t</span> <span class='from'>— Evron → Spilamberto</span></li><li><strong>Dia Spa</strong> <span class='tonnes'>2.81 t</span> <span class='from'>— Evron → Calcinato</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T3</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">21.1 t <span class="fill">(106 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chateauneuf Du Faou</span>
+                <span class="arrow">→</span>
+                <span class="location">Calcinato / Castenedolo / Paratico / Pioltello / Turin</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 5 lots
+                <ul><li><strong>Dia Spa</strong> <span class='tonnes'>5.85 t</span> <span class='from'>— Chateauneuf Du Faou → Calcinato</span></li><li><strong>Esselunga Spa</strong> <span class='tonnes'>5.82 t</span> <span class='from'>— Chateauneuf Du Faou → Pioltello</span></li><li><strong>Raspini Spa</strong> <span class='tonnes'>4.12 t</span> <span class='from'>— Chateauneuf Du Faou → Turin</span></li><li><strong>Italbrix Spa</strong> <span class='tonnes'>4.10 t</span> <span class='from'>— Chateauneuf Du Faou → Castenedolo</span></li><li><strong>Pastificio Rana</strong> <span class='tonnes'>1.22 t</span> <span class='from'>— Chateauneuf Du Faou → Paratico</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T4</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">10.6 t <span class="fill">(53 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Holtzheim</span>
+                <span class="arrow">→</span>
+                <span class="location">Turin</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Raspini Spa</strong> <span class='tonnes'>10.60 t</span> <span class='from'>— Holtzheim → Turin</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card porc">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T5</span>
+            <span class="tag tag-porc">PORC</span>
+            <span class="truck-totals">3.0 t <span class="fill">(15 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Porcgros</span>
+                <span class="arrow">→</span>
+                <span class="location">Spilamberto</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Global Carni</strong> <span class='tonnes'>3.04 t</span> <span class='from'>— Porcgros → Spilamberto</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R11">R11</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Porc expédié en direct — le hub Mâcon n'est pas rentable pour le porc (R11 : marge 2,50-3 €/kg contre 7-8 cts/kg de coût hub).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T6</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">1.9 t <span class="fill">(9 % de 20 t)</span></span>
+            <span class="truck-routing marfisi">Direct — Marfisi (1ère livraison)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Castres</span>
+                <span class="arrow">→</span>
+                <span class="location">Treglio</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Marfisi Carni Srl</strong> <span class='tonnes'>1.89 t</span> <span class='from'>— Castres → Treglio</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R06">R06</a></span><span class="rule-chip"><a href="regles_metier.html#R07">R07</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Exception Marfisi : bœuf et brebis autorisés dans le même camion (R06). Treglio doit être la 1ère livraison de la tournée (R07).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T7</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">15.1 t <span class="fill">(75 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_direct">Direct Italie (ramasse OUEST-VENDÉE)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chataigneraie + La Roche Sur Yon</span>
+                <span class="arrow">→</span>
+                <span class="location">Strembo</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Botteri Carni Srl</strong> <span class='tonnes'>8.75 t</span> <span class='from'>— Chataigneraie → Strembo</span></li><li><strong>Botteri Carni Srl</strong> <span class='tonnes'>6.34 t</span> <span class='from'>— La Roche Sur Yon → Strembo</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage multi-sites du groupe OUEST-VENDÉE (cumul ≤ 400 km), volume suffisant (15.1 t) pour livraison directe.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T8</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">18.2 t <span class="fill">(91 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Feignies</span>
+                <span class="arrow">→</span>
+                <span class="location">Veniano</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Uboldi Srl</strong> <span class='tonnes'>18.24 t</span> <span class='from'>— Feignies → Veniano</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : volume suffisant depuis Feignies vers Veniano pour un camion direct (18.2 t).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T9</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">5.3 t <span class="fill">(27 % de 20 t)</span></span>
+            <span class="truck-routing direct">Direct Italie (multi-livraisons)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Castres</span>
+                <span class="arrow">→</span>
+                <span class="location">Pianella</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Bellier Srl</strong> <span class='tonnes'>5.32 t</span> <span class='from'>— Castres → Pianella</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R10">R10</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf Castres : livraison directe multi-clients. Castres est géographiquement isolé, le transit par Mâcon n'est pas rentable (R10).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T10</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">2.9 t <span class="fill">(14 % de 20 t)</span></span>
+            <span class="truck-routing macon">Vers Hub Mâcon (consolidation)</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Cuiseaux</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Rico Carni</strong> <span class='tonnes'>1.54 t</span> <span class='from'>— Cuiseaux → Cavarzere</span></li><li><strong>Itacarni Distribution Srl</strong> <span class='tonnes'>1.33 t</span> <span class='from'>— Cuiseaux → Sona</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : petits lots depuis Cuiseaux → déposés au hub Mâcon pour consolidation avec d'autres partiels (R13).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T11</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">20.7 t <span class="fill">(103 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Chataigneraie</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 2 lots
+                <ul><li><strong>Indal</strong> <span class='tonnes'>11.81 t</span> <span class='from'>— Chataigneraie → Gussago</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>8.89 t</span> <span class='from'>— Chataigneraie → Gorla Maggiore</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ala, Centallo, Galliate....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T12</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">21.4 t <span class="fill">(107 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Cherre + La Roche Sur Yon</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 7 lots
+                <ul><li><strong>Pregis Spa Galliate</strong> <span class='tonnes'>4.16 t</span> <span class='from'>— Cherre → Galliate</span></li><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>4.08 t</span> <span class='from'>— La Roche Sur Yon → Pietrasanta</span></li><li><strong>Conad C/O Fiorani</strong> <span class='tonnes'>3.55 t</span> <span class='from'>— Cherre → Piacenza</span></li><li><strong>Dama/ Unicom Selex</strong> <span class='tonnes'>2.94 t</span> <span class='from'>— La Roche Sur Yon → Santa Giustina</span></li><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>2.88 t</span> <span class='from'>— Cherre → Pisa</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>1.96 t</span> <span class='from'>— La Roche Sur Yon → Gorla Maggiore</span></li><li><strong>Ala Carni Sal</strong> <span class='tonnes'>1.85 t</span> <span class='from'>— La Roche Sur Yon → Ala</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ala, Centallo, Galliate....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T13</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">6.7 t <span class="fill">(34 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse OUEST-VENDÉE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Cherre</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 5 lots
+                <ul><li><strong>Proda(Sodexo)Alimenti Spa</strong> <span class='tonnes'>1.71 t</span> <span class='from'>— Cherre → Pietralunga</span></li><li><strong>Commerciale Avicola Spa</strong> <span class='tonnes'>1.71 t</span> <span class='from'>— Cherre → Pioltello</span></li><li><strong>Operti Snc</strong> <span class='tonnes'>1.68 t</span> <span class='from'>— Cherre → Centallo</span></li><li><strong>Food & Food Srl</strong> <span class='tonnes'>1.04 t</span> <span class='from'>— Cherre → Padua</span></li><li><strong>Coop.Agri. Volpago S.C.A</strong> <span class='tonnes'>0.60 t</span> <span class='from'>— Cherre → Volpago Del Montello</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage OUEST-VENDÉE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ala, Centallo, Galliate....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T14</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">3.3 t <span class="fill">(17 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse EST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Metz</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 1 lot
+                <ul><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.32 t</span> <span class='from'>— Metz → Gorla Maggiore</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage EST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Gorla Maggiore.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T15</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">12.7 t <span class="fill">(63 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse BRETAGNE-OUEST → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Quimperle</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 3 lots
+                <ul><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>4.80 t</span> <span class='from'>— Quimperle → Pietrasanta</span></li><li><strong>Ala Carni Sal</strong> <span class='tonnes'>3.98 t</span> <span class='from'>— Quimperle → Ala</span></li><li><strong>Salmoiraghi Fratelli Srl</strong> <span class='tonnes'>3.88 t</span> <span class='from'>— Quimperle → Gorla Maggiore</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage BRETAGNE-OUEST (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Ala, Gorla Maggiore, Pietrasanta.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="truck-card boeuf">
+        <div class="truck-header">
+            <span class="truck-id">CAMION T16</span>
+            <span class="tag tag-boeuf">BŒUF</span>
+            <span class="truck-totals">15.6 t <span class="fill">(78 % de 20 t)</span></span>
+            <span class="truck-routing ramasse_macon">Ramasse NORMANDIE → Hub Mâcon</span>
+        </div>
+        <div class="truck-body">
+            <div class="truck-route">
+                <span class="location">Coutances + Gace + Sable</span>
+                <span class="arrow">→</span>
+                <span class="location">Mâcon (Hub)</span>
+            </div>
+            <div class="truck-lots">
+                <strong>Contenu :</strong> 6 lots
+                <ul><li><strong>Dama/ Unicom Selex</strong> <span class='tonnes'>6.83 t</span> <span class='from'>— Gace → Santa Giustina</span></li><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>2.83 t</span> <span class='from'>— Coutances → Pisa</span></li><li><strong>Centro Carni Company Spa</strong> <span class='tonnes'>2.04 t</span> <span class='from'>— Gace → Pisa</span></li><li><strong>Damp Scrl Usmate</strong> <span class='tonnes'>1.83 t</span> <span class='from'>— Gace → Usmate Velate</span></li><li><strong>Pedranzini Salumificio Di</strong> <span class='tonnes'>1.59 t</span> <span class='from'>— Gace → Bormio</span></li><li><strong>Lombardo G & C Srl</strong> <span class='tonnes'>0.43 t</span> <span class='from'>— Sable → San Filippo Del Mela</span></li></ul>
+            </div>
+            <div class="truck-meta">
+                <div class="truck-meta-item">
+                    <div class="label">Règles appliquées</div>
+                    <div class="content"><span class="rule-chip"><a href="regles_metier.html#R04">R04</a></span><span class="rule-chip"><a href="regles_metier.html#R08">R08</a></span><span class="rule-chip"><a href="regles_metier.html#R12">R12</a></span><span class="rule-chip"><a href="regles_metier.html#R13">R13</a></span></div>
+                </div>
+                <div class="truck-meta-item">
+                    <div class="label">Justification</div>
+                    <div class="content">Bœuf : ramassage NORMANDIE (cumul ≤ 400 km, R08) → consolidation au hub Mâcon (R13) puis ré-expédition vers Bormio, Pisa, San Filippo Del Mela....</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+    </div>
+    
+        </div>
 
         
     <div class="section">
-        <h2>Hypothèses et méthode</h2>
-        <p>Cette prévision est construite à partir des 9 semaines historiques disponibles
-        (janvier-février 2026, 885 expéditions). Pour chaque abattoir et chaque jour de la
-        semaine, nous calculons :</p>
-        <ul style="margin: 10px 0 10px 30px;">
-            <li>La tonnage moyen par semaine (quand il y a expédition)</li>
-            <li>La présence en % des semaines (est-ce récurrent ou ponctuel ?)</li>
-            <li>Le coefficient de variation CV = écart-type / moyenne (stabilité)</li>
-        </ul>
-        <div class="highlight">
-            <strong>À noter :</strong> ce plan suppose une semaine "standard" comparable à
-            janvier-février. En cas d'événement particulier (jours fériés, congés, pics de
-            demande, Pâques, etc.), les volumes peuvent varier significativement. La
-            semaine du 21 avril est post-Pâques (Lundi de Pâques = 6 avril 2026), donc a
-            priori normale.
-        </div>
+        <h2>Méthode</h2>
+        <p>Ce planning est construit par un <strong>solveur</strong> qui applique automatiquement
+        les <a href="regles_metier.html" style="color:#E67E22;"><strong>règles métier</strong></a>
+        (R01 à R26). Pour chaque jour :</p>
+        <ol style="margin: 10px 0 10px 30px;">
+            <li>Les lots attendus sont extraits de la <strong>semaine de référence</strong>
+                (semaine 9 — 23 au 27 février 2026, la plus récente complète dans les données).</li>
+            <li>Ils sont <strong>séparés par type de viande</strong> (R04 : pas de mélange porc/bœuf).</li>
+            <li>Le porc est affecté à des camions <strong>direct Italie</strong> groupés par abattoir
+                (R11 : porc jamais au hub Mâcon).</li>
+            <li>Les lots Marfisi (bœuf + brebis vers Treglio) sont regroupés dans un
+                <strong>camion unique</strong> avec Marfisi en 1ère livraison (R06, R07).</li>
+            <li>Les brebis restantes sont dédiées à un camion isolé depuis Bichon (R05).</li>
+            <li>Le bœuf est routé par destination : si le volume est suffisant (≥ 15 t)
+                depuis un abattoir ou un groupe de ramasse (R08), le camion va
+                <strong>direct en Italie</strong>. Sinon, il est <strong>consolidé au hub
+                Mâcon</strong> (R13).</li>
+            <li>Castres est toujours traité en direct (R10 — site géographiquement isolé).</li>
+            <li>Les camions sont remplis jusqu'à <strong>20 t cible</strong> (22 t maxi, R01-R02).</li>
+        </ol>
         <div class="highlight-blue">
-            <strong>À valider avec Dominique :</strong>
-            <ul style="margin: 8px 0 0 25px;">
-                <li>Les fenêtres de livraison spécifiques par client italien (arrivée avant X h)</li>
-                <li>Les priorités commerciales éventuelles (un client à livrer absolument
-                    avant un autre)</li>
-                <li>Les ruptures de charge connues à l'avance (congés abattoir, entretien, etc.)</li>
-            </ul>
+            <strong>Ce plan n'est pas définitif :</strong> c'est une proposition construite à partir
+            des règles et de l'historique récent. Dominique peut challenger chaque camion
+            — chaque règle citée est cliquable (lien vers le document de référence) et la
+            justification est explicite.
         </div>
     </div>
     
 
         <div class="footer">
-            <p>Planning hebdomadaire Bigard — Semaine du 21 au 25 avril 2026</p>
-            <p>Basé sur 9 semaines d'historique (janvier-février 2026)</p>
+            <p>Planning camions Bigard — Semaine du 21 au 25 avril 2026</p>
+            <p>Baseline : semaine 9 du 23 au 27 février 2026 (dernière semaine complète disponible)</p>
             <p style="margin-top:10px;">
                 <a href="analyse.html" style="color:#E67E22; font-weight:bold;">→ Rapport 1 : Analyse</a>
                 &nbsp;&nbsp;
