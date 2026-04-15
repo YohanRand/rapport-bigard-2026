@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Semaine — 21-25 avril 2026 — Bigard</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: #2C3E50; line-height: 1.6; }
+.header { background: linear-gradient(135deg, #2C3E50, #34495E); color: white; padding: 40px; text-align: center; }
+.header h1 { font-size: 2em; margin-bottom: 10px; }
+.header .subtitle { font-size: 1.1em; opacity: 0.8; }
+.header .nav { margin-top: 15px; }
+.header .nav a { color: white; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; text-decoration: none; margin: 0 5px; font-size: 0.95em; }
+.header .nav a:hover { background: rgba(255,255,255,0.35); }
+.header .nav a.active { background: #E67E22; font-weight: bold; }
+.container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 30px 0; }
+.metric-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+.metric-card .value { font-size: 2em; font-weight: bold; color: #2C3E50; }
+.metric-card .label { font-size: 0.9em; color: #7F8C8D; margin-top: 5px; }
+.metric-card.accent .value { color: #E67E22; }
+.metric-card.red .value { color: #E74C3C; }
+.metric-card.blue .value { color: #2E86C1; }
+.metric-card.green .value { color: #27AE60; }
+.section { background: white; border-radius: 10px; padding: 30px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.section h2 { color: #2C3E50; border-bottom: 3px solid #E67E22; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4em; }
+.section h3 { color: #34495E; margin: 15px 0 10px; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.92em; }
+th { background: #2C3E50; color: white; padding: 10px 6px; text-align: left; }
+td { padding: 8px 6px; border-bottom: 1px solid #eee; vertical-align: top; }
+tr:hover { background: #f8f9fa; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78em; font-weight: bold; white-space: nowrap; }
+.tag-porc { background: #FADBD8; color: #E74C3C; }
+.tag-boeuf { background: #D6EAF8; color: #2E86C1; }
+.tag-brebis { background: #D5F5E3; color: #27AE60; }
+.conf-haute { color: #27AE60; font-weight: bold; }
+.conf-moyenne { color: #E67E22; font-weight: bold; }
+.conf-faible { color: #E74C3C; font-weight: bold; }
+.highlight { background: #FEF9E7; border-left: 4px solid #E67E22; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-green { background: #D5F5E3; border-left: 4px solid #27AE60; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-blue { background: #D6EAF8; border-left: 4px solid #2E86C1; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.footer { text-align: center; padding: 30px; color: #7F8C8D; font-size: 0.9em; }
+.day-block { border: 1px solid #e1e5eb; border-radius: 10px; margin: 20px 0; overflow: hidden; }
+.day-header { background: linear-gradient(90deg, #2C3E50, #34495E); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.day-header h3 { color: white; margin: 0; font-size: 1.3em; }
+.day-header .day-stats { font-size: 0.95em; opacity: 0.95; }
+.day-header .day-stats span { margin-left: 15px; }
+.day-body { padding: 15px 20px; }
+.route-group { background: #f8f9fa; padding: 10px 15px; margin: 10px 0; border-left: 3px solid #E67E22; border-radius: 4px; font-size: 0.92em; }
+.route-group strong { color: #E67E22; }
+.marfisi-note { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 0.75em; background: #FCE4D6; color: #B45309; margin-left: 4px; font-weight: bold; }
+.legend { background: #fafbfc; border: 1px solid #e1e5eb; border-radius: 8px; padding: 15px; margin: 15px 0; font-size: 0.92em; }
+.legend h4 { margin-bottom: 8px; color: #34495E; }
+.legend ul { list-style: none; padding: 0; }
+.legend li { margin: 4px 0; }
+@media print {
+  body { background: white; }
+  .section, .day-block { box-shadow: none; break-inside: avoid; }
+  .header .nav { display: none; }
+}
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>Planning Semaine du 21/04 au 25/04/2026</h1>
+        <div class="subtitle">Prévision de ramassage et livraison — Bigard vers Italie</div>
+        <div class="subtitle">Préparé pour Dominique Page — DPO / Groupe Olano</div>
+        <div class="nav">
+            <a href="index.html">Accueil</a>
+            <a href="analyse.html">Analyse</a>
+            <a href="recommandations.html">Recommandations</a>
+            <a href="planning_semaine.html" class="active">Planning semaine</a>
+            <a href="regles_metier.html">Règles métier</a>
+        </div>
+    </div>
+
+    <div class="container">
+        
+    <div class="metrics-grid">
+        <div class="metric-card accent">
+            <div class="value">674 t</div>
+            <div class="label">Tonnage prévu sur la semaine</div>
+        </div>
+        <div class="metric-card blue">
+            <div class="value">72</div>
+            <div class="label">Camions prévus (arrondi sup.)</div>
+        </div>
+        <div class="metric-card red">
+            <div class="value">323 t</div>
+            <div class="label">Porc</div>
+        </div>
+        <div class="metric-card">
+            <div class="value" style="color:#2E86C1;">336 t</div>
+            <div class="label">Bœuf</div>
+        </div>
+        <div class="metric-card green">
+            <div class="value">15 t</div>
+            <div class="label">Brebis</div>
+        </div>
+    </div>
+    
+
+        <div class="section">
+            <h2>Synthèse de la semaine</h2>
+            
+    <table>
+        <tr>
+            <th>Jour</th>
+            <th style='text-align:center;'>Nb abattoirs</th>
+            <th style='text-align:right;'>Tonnage prévu</th>
+            <th style='text-align:center;'>Camions</th>
+            <th style='text-align:right;'>Porc</th>
+            <th style='text-align:right;'>Bœuf</th>
+            <th style='text-align:right;'>Brebis</th>
+        </tr>
+        <tr><td><strong>Lundi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>21/04</span></td><td style='text-align:center;'>2</td><td style='text-align:right;'>16.6 t</td><td style='text-align:center;'><strong>2</strong></td><td style='text-align:right;'>15.4 t</td><td style='text-align:right;'>1.2 t</td><td style='text-align:right;'>0.0 t</td></tr><tr><td><strong>Mardi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>22/04</span></td><td style='text-align:center;'>13</td><td style='text-align:right;'>143.8 t</td><td style='text-align:center;'><strong>15</strong></td><td style='text-align:right;'>78.5 t</td><td style='text-align:right;'>57.4 t</td><td style='text-align:right;'>7.9 t</td></tr><tr><td><strong>Mercredi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>23/04</span></td><td style='text-align:center;'>16</td><td style='text-align:right;'>205.5 t</td><td style='text-align:center;'><strong>21</strong></td><td style='text-align:right;'>80.9 t</td><td style='text-align:right;'>124.6 t</td><td style='text-align:right;'>0.0 t</td></tr><tr><td><strong>Jeudi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>24/04</span></td><td style='text-align:center;'>9</td><td style='text-align:right;'>87.5 t</td><td style='text-align:center;'><strong>11</strong></td><td style='text-align:right;'>57.7 t</td><td style='text-align:right;'>22.9 t</td><td style='text-align:right;'>6.8 t</td></tr><tr><td><strong>Vendredi</strong><br><span style='color:#7F8C8D;font-size:0.9em;'>25/04</span></td><td style='text-align:center;'>19</td><td style='text-align:right;'>220.6 t</td><td style='text-align:center;'><strong>23</strong></td><td style='text-align:right;'>90.7 t</td><td style='text-align:right;'>129.9 t</td><td style='text-align:right;'>0.0 t</td></tr>
+    </table>
+    
+            <div class="highlight-green">
+                <strong>À imprimer :</strong> cette feuille peut servir de planning de base
+                pour la semaine. Chaque jour est détaillé plus bas avec les abattoirs, le
+                tonnage estimé, le nombre de camions et le routage recommandé.
+            </div>
+        </div>
+
+        
+    <div class="legend">
+        <h4>Comment lire ce document</h4>
+        <ul>
+            <li><strong>Tonnage estimé</strong> : moyenne historique janvier-février 2026 sur 9 semaines.
+                Le "max attendu" correspond au 90ᵉ percentile (cas chargé, +20% en pratique).</li>
+            <li><strong>Camions</strong> : arrondi au supérieur sur une cible de 20 t/camion
+                (capacité 22-23 t maxi, marge de sécurité 20 %).</li>
+            <li><strong>Routage</strong> : <em>Direct</em> = camion complet de l'abattoir au client.
+                <em>Hub Mâcon</em> = chargement partiel consolidé à Mâcon.
+                Les porcs ne transitent <u>jamais</u> par Mâcon (marge trop faible).</li>
+            <li><strong>Confiance</strong> :
+                <span class="conf-haute">✅ HAUTE</span> = pattern stable, présent &gt; 75 % des semaines et variabilité &lt; 50 %.
+                <span class="conf-moyenne">⚠️ MOYENNE</span> = pattern moyennement stable.
+                <span class="conf-faible">❓ FAIBLE</span> = à vérifier avec le client, historique peu fiable.</li>
+            <li><strong>MARFISI (1ère livraison)</strong> : le client Marfisi (Treglio) doit être
+                livré en premier sur la tournée. Accepte bœuf + brebis dans le même camion (exception).</li>
+        </ul>
+    </div>
+    
+
+        <div class="section">
+            <h2>Plan détaillé jour par jour</h2>
+            
+        <div class="day-block">
+            <div class="day-header">
+                <h3>Lundi 21 avril 2026</h3>
+                <div class="day-stats">
+                    <span><strong>16.6 t</strong></span>
+                    <span><strong>2 camions</strong></span>
+                    <span>2 abattoirs</span>
+                </div>
+            </div>
+            <div class="day-body">
+                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Confiance</th></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>15.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 19.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
+            </div>
+        </div>
+        
+        <div class="day-block">
+            <div class="day-header">
+                <h3>Mardi 22 avril 2026</h3>
+                <div class="day-stats">
+                    <span><strong>143.8 t</strong></span>
+                    <span><strong>15 camions</strong></span>
+                    <span>13 abattoirs</span>
+                </div>
+            </div>
+            <div class="day-body">
+                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Confiance</th></tr><tr><td><strong>LA ROCHE SUR YON</strong><span class="marfisi-note">MARFISI (1ère livraison)</span><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>19.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 25.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>550 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>QUIMPERLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>17.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 29.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>820 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>CHATAIGNERAIE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>520 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>CASTRES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.2 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>COUTANCES</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 2.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 3.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>BICHON LE VIGEANT</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-brebis">BREBIS</span></td><td style='text-align:right;'>7.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 9.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (Marfisi)</td><td style='text-align:center;'>500 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>34.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 52.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>28.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 37.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>15.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 20.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
+            </div>
+        </div>
+        
+        <div class="day-block">
+            <div class="day-header">
+                <h3>Mercredi 23 avril 2026</h3>
+                <div class="day-stats">
+                    <span><strong>205.5 t</strong></span>
+                    <span><strong>21 camions</strong></span>
+                    <span>16 abattoirs</span>
+                </div>
+            </div>
+            <div class="day-body">
+                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Confiance</th></tr><tr><td><strong>QUIMPERLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>47.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 63.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>3</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>820 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>CHATAIGNERAIE</strong><span class="marfisi-note">MARFISI (1ère livraison)</span><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>16.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 23.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>520 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>CASTRES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>12.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 14.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>LA ROCHE SUR YON</strong><span class="marfisi-note">MARFISI (1ère livraison)</span><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>8.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 11.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>CUISEAUX</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>7.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 10.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>50 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>METZ</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>6.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 10.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>CHERRE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>5.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>5.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>5.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>MONTAUBAN DE BRETAGNE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 2.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>750 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>CODEVIA</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>0.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>31.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 40.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>28.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 37.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>21.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 21.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
+            </div>
+        </div>
+        
+        <div class="day-block">
+            <div class="day-header">
+                <h3>Jeudi 24 avril 2026</h3>
+                <div class="day-stats">
+                    <span><strong>87.5 t</strong></span>
+                    <span><strong>11 camions</strong></span>
+                    <span>9 abattoirs</span>
+                </div>
+            </div>
+            <div class="day-body">
+                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Confiance</th></tr><tr><td><strong>CUISEAUX</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>8.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 12.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>50 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.7 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>550 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.5 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>CHATAIGNERAIE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 2.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>520 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 3.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>600 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>0.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>BICHON LE VIGEANT</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-brebis">BREBIS</span></td><td style='text-align:right;'>6.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (Marfisi)</td><td style='text-align:center;'>500 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>37.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 56.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>20.6 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 21.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr></table>
+            </div>
+        </div>
+        
+        <div class="day-block">
+            <div class="day-header">
+                <h3>Vendredi 25 avril 2026</h3>
+                <div class="day-stats">
+                    <span><strong>220.6 t</strong></span>
+                    <span><strong>23 camions</strong></span>
+                    <span>19 abattoirs</span>
+                </div>
+            </div>
+            <div class="day-body">
+                <table><tr><th>Abattoir</th><th>Type</th><th style='text-align:right;'>Tonnage estimé</th><th style='text-align:center;'>Camions</th><th>Routage</th><th style='text-align:center;'>Dist. Mâcon</th><th style='text-align:center;'>Confiance</th></tr><tr><td><strong>CHATAIGNERAIE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>21.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 29.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>520 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>CHERRE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>21.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 29.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>480 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>FEIGNIES</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>18.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 18.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>550 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>LA ROCHE SUR YON</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>OUEST-VENDEE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>15.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 22.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct (camion plein)</td><td style='text-align:center;'>550 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>GACE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>13.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 16.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (consolidation)</td><td style='text-align:center;'>600 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>QUIMPERLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>9.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 16.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>820 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>89% des semaines</span></td></tr><tr><td><strong>VITRY</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.9 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.2 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>350 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>56% des semaines</span></td></tr><tr><td><strong>METZ</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 8.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>RUNGIS</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>EST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.8 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>400 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>CASTRES</strong><span class="marfisi-note">MARFISI (1ère livraison)</span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>4.5 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 7.4 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-haute' style='text-align:center;'>✅ HAUTE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>CUISEAUX</strong></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.4 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.5 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>50 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>78% des semaines</span></td></tr><tr><td><strong>COUTANCES</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>3.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 5.3 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>700 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>MONTAUBAN DE BRETAGNE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>BRETAGNE-OUEST</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>2.5 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 3.1 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>750 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>22% des semaines</span></td></tr><tr><td><strong>SABLE</strong><br><span style='color:#7F8C8D;font-size:0.85em;'>↳ route <strong>NORMANDIE</strong></span></td><td><span class="tag tag-boeuf">BŒUF</span></td><td style='text-align:right;'>1.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 1.7 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Hub Mâcon (ramasse)</td><td style='text-align:center;'>480 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>44% des semaines</span></td></tr><tr><td><strong>CHATEAUNEUF DU FAOU</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>34.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 57.6 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>900 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>100% des semaines</span></td></tr><tr><td><strong>EVRON</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>27.2 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 35.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>2</strong></td><td>Direct</td><td style='text-align:center;'>600 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>ST BRICE EN COGLES</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>15.0 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 15.9 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>700 km</td><td class='conf-faible' style='text-align:center;'>❓ FAIBLE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>33% des semaines</span></td></tr><tr><td><strong>HOLTZHEIM</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>11.1 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 11.8 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr><tr><td><strong>PORCGROS</strong></td><td><span class="tag tag-porc">PORC</span></td><td style='text-align:right;'>3.3 t<br><span style='color:#7F8C8D;font-size:0.8em;'>max attendu : 4.0 t</span></td><td style='text-align:center;font-size:1.1em;'><strong>1</strong></td><td>Direct</td><td style='text-align:center;'>450 km</td><td class='conf-moyenne' style='text-align:center;'>⚠️ MOYENNE<br><span style='color:#7F8C8D;font-size:0.8em;font-weight:normal;'>67% des semaines</span></td></tr></table>
+            </div>
+        </div>
+        
+        </div>
+
+        
+    <div class="section">
+        <h2>Routes de ramasse bœuf (rappel)</h2>
+        <p>Pour les chargements partiels (&lt; 15 t) envoyés vers le hub Mâcon, regrouper
+        les abattoirs proches selon les 4 routes identifiées :</p>
+        <table>
+            <tr><th>Route</th><th>Abattoirs</th><th>Logique</th></tr>
+            <tr><td><strong>OUEST-VENDÉE</strong></td><td>La Roche sur Yon → Châtaigneraie → Cholet → Cherré</td><td>Camion dédié 2-3 fois/semaine vers Mâcon</td></tr>
+            <tr><td><strong>NORMANDIE</strong></td><td>Coutances → Gacé → Sablé</td><td>1-2 camions/semaine</td></tr>
+            <tr><td><strong>EST</strong></td><td>Metz → Vitry → Rungis</td><td>1 camion/semaine</td></tr>
+            <tr><td><strong>BRETAGNE-OUEST</strong></td><td>Quimperlé → Guingamp → Montauban</td><td>2-3 camions/semaine (gros volume)</td></tr>
+        </table>
+        <div class="highlight">
+            <strong>Règle des 400 km :</strong> maximum 2 points de ramassage par jour
+            s'ils sont dans un rayon de 400 km (≈ 6-7 h de conduite).
+            Au-delà, étaler sur 2 jours (flexibilité J+1).
+        </div>
+    </div>
+    
+
+        
+    <div class="section">
+        <h2>Hypothèses et méthode</h2>
+        <p>Cette prévision est construite à partir des 9 semaines historiques disponibles
+        (janvier-février 2026, 885 expéditions). Pour chaque abattoir et chaque jour de la
+        semaine, nous calculons :</p>
+        <ul style="margin: 10px 0 10px 30px;">
+            <li>La tonnage moyen par semaine (quand il y a expédition)</li>
+            <li>La présence en % des semaines (est-ce récurrent ou ponctuel ?)</li>
+            <li>Le coefficient de variation CV = écart-type / moyenne (stabilité)</li>
+        </ul>
+        <div class="highlight">
+            <strong>À noter :</strong> ce plan suppose une semaine "standard" comparable à
+            janvier-février. En cas d'événement particulier (jours fériés, congés, pics de
+            demande, Pâques, etc.), les volumes peuvent varier significativement. La
+            semaine du 21 avril est post-Pâques (Lundi de Pâques = 6 avril 2026), donc a
+            priori normale.
+        </div>
+        <div class="highlight-blue">
+            <strong>À valider avec Dominique :</strong>
+            <ul style="margin: 8px 0 0 25px;">
+                <li>Les fenêtres de livraison spécifiques par client italien (arrivée avant X h)</li>
+                <li>Les priorités commerciales éventuelles (un client à livrer absolument
+                    avant un autre)</li>
+                <li>Les ruptures de charge connues à l'avance (congés abattoir, entretien, etc.)</li>
+            </ul>
+        </div>
+    </div>
+    
+
+        <div class="footer">
+            <p>Planning hebdomadaire Bigard — Semaine du 21 au 25 avril 2026</p>
+            <p>Basé sur 9 semaines d'historique (janvier-février 2026)</p>
+            <p style="margin-top:10px;">
+                <a href="analyse.html" style="color:#E67E22; font-weight:bold;">→ Rapport 1 : Analyse</a>
+                &nbsp;&nbsp;
+                <a href="recommandations.html" style="color:#E67E22; font-weight:bold;">→ Rapport 2 : Recommandations</a>
+                &nbsp;&nbsp;
+                <a href="regles_metier.html" style="color:#E67E22; font-weight:bold;">→ Règles métier</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

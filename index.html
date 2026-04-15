@@ -46,26 +46,37 @@
     .answer-box h3 { color: #27AE60; margin-bottom: 10px; }
 </style>
     <style>
-        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 30px 0; max-width: 1000px; margin-left: auto; margin-right: auto; }
         @media (max-width: 768px) { .card-grid { grid-template-columns: 1fr; } }
-        .report-card { background: white; border-radius: 15px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: #2C3E50; display: block; }
+        .report-card { position: relative; background: white; border-radius: 15px; padding: 35px 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; text-decoration: none; color: #2C3E50; display: block; }
         .report-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .report-card .icon { font-size: 3em; margin-bottom: 15px; }
-        .report-card h2 { font-size: 1.3em; margin-bottom: 10px; border: none; }
-        .report-card p { color: #7F8C8D; font-size: 0.95em; }
+        .report-card .icon { font-size: 2.8em; margin-bottom: 12px; }
+        .report-card h2 { font-size: 1.2em; margin-bottom: 10px; border: none; }
+        .report-card p { color: #7F8C8D; font-size: 0.93em; }
         .report-card.analyse { border-top: 5px solid #2C3E50; }
         .report-card.reco { border-top: 5px solid #E67E22; }
+        .report-card.planning { border-top: 5px solid #2E86C1; }
+        .report-card.regles { border-top: 5px solid #27AE60; }
+        .badge-new { position: absolute; top: -10px; right: 15px; background: #E74C3C; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.78em; font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
+        .section-title { text-align: center; margin: 40px 0 10px; color: #2C3E50; font-size: 1.1em; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
+        .section-title span { background: #f5f6fa; padding: 0 20px; position: relative; z-index: 1; }
+        .section-title::before { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: #d5d8dc; margin-top: 10px; z-index: 0; display: block; }
+        .section-title-wrap { position: relative; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="header">
     <h1>BCS BIGARD — Logistique France → Italie</h1>
-    <div class="subtitle">Rapports d'analyse et de recommandations | Janvier-Février 2026</div>
+    <div class="subtitle">Rapports d'analyse, recommandations et planning opérationnel | Janvier-Février 2026</div>
     <div class="subtitle" style="margin-top:5px;">Préparé pour Dominique Page — DPO / Groupe Olano</div>
 </div>
 
 <div class="container">
+
+    <div class="section-title-wrap">
+        <div class="section-title"><span>📊 Analyse & Recommandations</span></div>
+    </div>
     <div class="card-grid">
         <a href="analyse.html" class="report-card analyse">
             <div class="icon">&#128202;</div>
@@ -76,10 +87,31 @@
         <a href="recommandations.html" class="report-card reco">
             <div class="icon">&#128640;</div>
             <h2>Rapport 2<br>RECOMMANDATIONS & ACTIONS</h2>
-            <p>Camions de ramasse, routes de collecte, plan d'action semaine prochaine. Ce qu'il faut faire concrètement.</p>
+            <p>Camions de ramasse, routes de collecte, plan d'action. Ce qu'il faut faire concrètement.</p>
             <p style="color: #E67E22; font-weight: bold; margin-top: 15px;">Les actions &rarr;</p>
         </a>
     </div>
+
+    <div class="section-title-wrap" style="margin-top: 50px;">
+        <div class="section-title"><span>🚀 Nouveau — 15 avril 2026</span></div>
+    </div>
+    <div class="card-grid">
+        <a href="planning_semaine.html" class="report-card planning">
+            <span class="badge-new">NOUVEAU</span>
+            <div class="icon">&#128197;</div>
+            <h2>PLANNING SEMAINE<br>21-25 avril 2026</h2>
+            <p>Prévision jour par jour : abattoirs, tonnages, camions, routage et niveau de confiance. Feuille de planning à imprimer.</p>
+            <p style="color: #2E86C1; font-weight: bold; margin-top: 15px;">Le planning &rarr;</p>
+        </a>
+        <a href="regles_metier.html" class="report-card regles">
+            <span class="badge-new">NOUVEAU</span>
+            <div class="icon">&#128218;</div>
+            <h2>RÈGLES MÉTIER<br>Document de référence</h2>
+            <p>26 règles numérotées (capacité, séparation, ramassage, hub Mâcon, patterns détectés). Base du futur moteur de planification.</p>
+            <p style="color: #27AE60; font-weight: bold; margin-top: 15px;">Les règles &rarr;</p>
+        </a>
+    </div>
+
 </div>
 
 <div class="footer">

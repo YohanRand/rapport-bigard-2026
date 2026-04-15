@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Règles métier — Bigard / DPO-Olano</title>
+    <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: #2C3E50; line-height: 1.6; }
+.header { background: linear-gradient(135deg, #2C3E50, #34495E); color: white; padding: 40px; text-align: center; }
+.header h1 { font-size: 2em; margin-bottom: 10px; }
+.header .subtitle { font-size: 1.1em; opacity: 0.8; }
+.header .nav { margin-top: 15px; }
+.header .nav a { color: white; background: rgba(255,255,255,0.2); padding: 8px 20px; border-radius: 20px; text-decoration: none; margin: 0 5px; font-size: 0.95em; }
+.header .nav a:hover { background: rgba(255,255,255,0.35); }
+.header .nav a.active { background: #E67E22; font-weight: bold; }
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+.section { background: white; border-radius: 10px; padding: 30px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.section h2 { color: #2C3E50; border-bottom: 3px solid #E67E22; padding-bottom: 10px; margin-bottom: 20px; font-size: 1.4em; }
+.section h3 { color: #34495E; margin: 15px 0 10px; }
+.metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 30px 0; }
+.metric-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); text-align: center; }
+.metric-card .value { font-size: 2em; font-weight: bold; color: #2C3E50; }
+.metric-card .label { font-size: 0.9em; color: #7F8C8D; margin-top: 5px; }
+.metric-card.accent .value { color: #E67E22; }
+.metric-card.green .value { color: #27AE60; }
+.metric-card.orange .value { color: #E67E22; }
+.metric-card.red .value { color: #E74C3C; }
+.highlight { background: #FEF9E7; border-left: 4px solid #E67E22; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-green { background: #D5F5E3; border-left: 4px solid #27AE60; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.highlight-blue { background: #D6EAF8; border-left: 4px solid #2E86C1; padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.footer { text-align: center; padding: 30px; color: #7F8C8D; font-size: 0.9em; }
+.cat-anchor { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+.cat-anchor a { text-decoration: none; background: #EAECEE; color: #2C3E50; padding: 5px 12px; border-radius: 15px; font-size: 0.9em; }
+.cat-anchor a:hover { background: #E67E22; color: white; }
+.rule-card { border: 1px solid #e1e5eb; border-radius: 10px; margin: 15px 0; overflow: hidden; break-inside: avoid; }
+.rule-header { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; background: #f8f9fa; border-bottom: 1px solid #e1e5eb; flex-wrap: wrap; gap: 10px; }
+.rule-id { font-family: 'Consolas', 'Courier New', monospace; color: #E67E22; font-weight: bold; font-size: 1.05em; }
+.rule-name { font-weight: bold; color: #2C3E50; font-size: 1.05em; flex: 1; padding: 0 15px; }
+.rule-status { padding: 4px 10px; border-radius: 15px; font-size: 0.85em; font-weight: bold; white-space: nowrap; }
+.status-ok { background: #D5F5E3; color: #27AE60; }
+.status-tbv { background: #FDEBD0; color: #B9770E; }
+.rule-body { padding: 18px 20px; }
+.rule-body p { margin-bottom: 10px; }
+.rule-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #e1e5eb; }
+.rule-meta-item { font-size: 0.92em; }
+.rule-meta-item .label { font-weight: bold; color: #7F8C8D; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+.rule-meta-item .content { margin-top: 4px; color: #2C3E50; }
+.cat-section { margin-top: 30px; }
+.cat-section h2 { color: #2C3E50; border-bottom: 3px solid #E67E22; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.3em; scroll-margin-top: 20px; }
+@media print {
+  body { background: white; }
+  .section, .rule-card { box-shadow: none; break-inside: avoid; }
+  .header .nav { display: none; }
+}
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>Règles métier — Logistique Bigard</h1>
+        <div class="subtitle">Document de référence — règles connues et patterns détectés</div>
+        <div class="subtitle">Préparé pour Dominique Page — DPO / Groupe Olano</div>
+        <div class="nav">
+            <a href="index.html">Accueil</a>
+            <a href="analyse.html">Analyse</a>
+            <a href="recommandations.html">Recommandations</a>
+            <a href="planning_semaine.html">Planning semaine</a>
+            <a href="regles_metier.html" class="active">Règles métier</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="metrics-grid">
+            <div class="metric-card accent">
+                <div class="value">26</div>
+                <div class="label">Règles documentées</div>
+            </div>
+            <div class="metric-card green">
+                <div class="value">20</div>
+                <div class="label">✅ Confirmées</div>
+            </div>
+            <div class="metric-card orange">
+                <div class="value">6</div>
+                <div class="label">⚠️ À valider</div>
+            </div>
+            <div class="metric-card">
+                <div class="value">10</div>
+                <div class="label">Catégories</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Présentation</h2>
+            <p>Ce document recense les <strong>règles métier</strong> qui gouvernent
+            l'organisation logistique des expéditions Bigard vers l'Italie. Elles
+            proviennent de trois sources :</p>
+            <ul style="margin: 10px 0 15px 30px;">
+                <li><strong>Règles client</strong> issues des échanges avec Dominique Page
+                    (meetings du 14 et 15 avril 2026).</li>
+                <li><strong>Règles réglementaires</strong> imposées par la législation
+                    française et européenne (chaîne du froid, temps de conduite, PTAC).</li>
+                <li><strong>Patterns détectés automatiquement</strong> dans les données
+                    (885 expéditions, janvier-février 2026) — à valider avec le client.</li>
+            </ul>
+
+            <div class="highlight">
+                <strong>Principe de lecture :</strong>
+                <ul style="margin: 8px 0 0 25px;">
+                    <li>Une règle <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+                        est validée et intégrée au moteur de planification.</li>
+                    <li>Une règle <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+                        est une hypothèse (issue de données ou de meeting informel) qui
+                        doit être confirmée par le client avant intégration.</li>
+                </ul>
+            </div>
+
+            <div class="highlight-blue">
+                <strong>Évolution du référentiel :</strong> cette liste est vivante.
+                Le client remonte les règles progressivement (une par une au fil des
+                échanges). Chaque nouvelle règle est ajoutée avec un identifiant stable
+                (R01, R02, …) pour pouvoir y référer dans les analyses et le moteur.
+            </div>
+
+            <h3 style="margin-top: 20px;">Accès rapide par catégorie</h3>
+            <div class="cat-anchor">
+                <a href="#cat-Capacite">⚖️ Capacité (3)</a> <a href="#cat-Separation-des-viandes">🥩 Séparation des viandes (3)</a> <a href="#cat-Livraison">📦 Livraison (1)</a> <a href="#cat-Ramassage">🚚 Ramassage (3)</a> <a href="#cat-Routage-hub">🏭 Routage hub (3)</a> <a href="#cat-Classification">🏷️ Classification (3)</a> <a href="#cat-Volume">📊 Volume (1)</a> <a href="#cat-Reglementaire">📜 Réglementaire (1)</a> <a href="#cat-Pattern-detecte">🔍 Pattern détecté (5)</a> <a href="#cat-À-documenter">❓ À documenter (3)</a>
+            </div>
+        </div>
+
+        
+        <div class="cat-section" id="cat-Capacite">
+            <h2>⚖️ Capacité — 3 règle(s)</h2>
+            
+    <div class="rule-card" id="R01">
+        <div class="rule-header">
+            <span class="rule-id">R01</span>
+            <span class="rule-name">Capacité camion : 20 t cible, 22-23 t maxi</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>La cible opérationnelle est un camion chargé à 20 tonnes. Le maximum admissible est de 22-23 tonnes en tenant compte de la variabilité du poids des animaux : ~100 kg d'écart possible par animal × environ 30 animaux par camion = jusqu'à 3 tonnes d'incertitude. La marge de sécurité protège contre les dépassements de PTAC (poids total autorisé en charge).</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client + contrainte réglementaire (PTAC).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Un camion sur-estimé à 22 t peut dépasser 23 t à vide, engageant la responsabilité du transporteur et du donneur d'ordre (amende, immobilisation). À l'inverse, cibler 20 t donne une marge de 2-3 t.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R02">
+        <div class="rule-header">
+            <span class="rule-id">R02</span>
+            <span class="rule-name">Variabilité du poids : ±20 %</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Le poids réel d'un chargement peut varier de ±20 % par rapport au poids estimé lors de la prise de commande. Cette variabilité vient de la différence de rendement entre animaux (poids, taux gras, pièces commandées) et du mode de pesée chez l'abattoir.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client (Dominique Page) + règle appliquée dans PoC 2026-04-14.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Tous les calculs de remplissage et de planification doivent intégrer cette marge. Une commande de 18 t peut réellement faire 14,4 t ou 21,6 t. Une planification serrée à 20 t sans marge risque le débord.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R03">
+        <div class="rule-header">
+            <span class="rule-id">R03</span>
+            <span class="rule-name">Arrondi en camions entiers (supérieur)</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Tous les résultats de planification et de prévision sont exprimés en nombre entier de camions, arrondi au supérieur. Un besoin estimé à 18,4 t → 1 camion. Un besoin à 21,3 t → 2 camions.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client 2026-04-14 (simplification opérationnelle).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Les calculs internes sont des moyennes ; les décisions opérationnelles se font en camions entiers. Cela évite les ambiguïtés dans le dialogue avec le transport et simplifie la lecture des plannings.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Separation-des-viandes">
+            <h2>🥩 Séparation des viandes — 3 règle(s)</h2>
+            
+    <div class="rule-card" id="R04">
+        <div class="rule-header">
+            <span class="rule-id">R04</span>
+            <span class="rule-name">Porc et bœuf jamais mélangés</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Un camion transporte soit du porc, soit du bœuf, jamais les deux. La règle s'applique sans exception sur l'ensemble du parcours (depuis le chargement abattoir jusqu'à la livraison finale).</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client — règle sanitaire/contractuelle client italien.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Interdit de regrouper des lots porc + bœuf même s'ils vont au même client. Chaque type nécessite son propre camion, d'où l'importance du hub Mâcon pour consolider les petits lots de bœuf.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R05">
+        <div class="rule-header">
+            <span class="rule-id">R05</span>
+            <span class="rule-name">Brebis (Bichon Le Vigeant) isolé</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Les expéditions de brebis depuis Bichon Le Vigeant sont transportées séparément des autres viandes. Raison : odeur caractéristique qui imprègne le reste du chargement et les clients bœuf le refusent.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Bichon nécessite ses propres camions dédiés (souvent partiels car les volumes brebis sont de ~3 t/expédition en moyenne). Opportunité de ramasse dédiée brebis ou exception Marfisi (R06).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R06">
+        <div class="rule-header">
+            <span class="rule-id">R06</span>
+            <span class="rule-name">Exception Marfisi : brebis + bœuf autorisés</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Le client Marfisi Carni SRL (Treglio, Abruzzes) accepte — par accord commercial — de recevoir des brebis et du bœuf dans le même camion. C'est la seule exception à la règle R05.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client + confirmation data (36 expéditions Marfisi sur 9 semaines, dont ~40 % depuis Bichon Le Vigeant, le reste depuis des abattoirs bœuf : La Roche sur Yon, Cuiseaux, Châtaigneraie, Castres).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Permet d'éviter un camion Bichon dédié sous-chargé quand Marfisi commande dans la même fenêtre. Gain moyen : 1 camion/semaine évité.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Livraison">
+            <h2>📦 Livraison — 1 règle(s)</h2>
+            
+    <div class="rule-card" id="R07">
+        <div class="rule-header">
+            <span class="rule-id">R07</span>
+            <span class="rule-name">Marfisi toujours livré en premier</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Quand un camion livre plusieurs clients, Marfisi (Treglio) doit être le premier point de livraison sur la tournée. Raison : l'inclusion de brebis (R06) impose une décharge prioritaire pour limiter le contact avec les autres lots.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client — contrainte commerciale + logique sanitaire.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Si le chauffeur ne respecte pas l'ordre, conflit avec Marfisi. Impose une planification de tournée qui place Treglio en tête, donc impacte le choix des autres clients combinables.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Ramassage">
+            <h2>🚚 Ramassage — 3 règle(s)</h2>
+            
+    <div class="rule-card" id="R08">
+        <div class="rule-header">
+            <span class="rule-id">R08</span>
+            <span class="rule-name">400 km maxi pour 2 points de ramassage même jour</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Un chauffeur peut effectuer au maximum 2 points de ramassage dans la même journée si ces 2 points sont dans un rayon de 400 km l'un de l'autre (≈ 6-7 h de conduite hors chargement). Au-delà, il faut étaler sur 2 jours.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client + contrainte temps de conduite.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Limite les combinaisons possibles : par exemple, Quimperlé (820 km Mâcon) ne peut être combiné avec Vitry (350 km Mâcon) le même jour. Mais La Roche + Châtaigneraie (~40 km) se combinent sans souci.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R09">
+        <div class="rule-header">
+            <span class="rule-id">R09</span>
+            <span class="rule-name">Flexibilité J+1 : abattoirs éloignés sur 2 jours</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Pour les abattoirs situés à 700-800 km du hub (Quimperlé, Guingamp, Montauban de Bretagne, Coutances, Bichon Le Vigeant), les chargements du jour A peuvent être groupés avec ceux du jour B pour consolidation au hub. La récupération s'étale sur deux jours consécutifs.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client + simulation Mâcon (PoC 2026-04-14 : -31 camions sur 2 mois grâce à cette flexibilité).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Permet d'attendre au hub un 2ᵉ lot pour remplir un camion complet au lieu de partir avec un partiel. Nécessite une capacité de stockage tampon au hub Mâcon (froid).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R10">
+        <div class="rule-header">
+            <span class="rule-id">R10</span>
+            <span class="rule-name">Castres isolé — pas rentable via Mâcon</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>L'abattoir de Castres (Tarn) est géographiquement isolé : 450 km de Mâcon mais sans autre abattoir proche à combiner. Détour de consolidation Mâcon non rentable pour Castres.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Analyse données + confirmation client.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Castres reste en routage direct. 172 t sur 2 mois = ~9 camions. Les chargements Castres sont soit pleins (envoi direct), soit groupés entre eux (plusieurs clients même camion si compatible).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Routage-hub">
+            <h2>🏭 Routage hub — 3 règle(s)</h2>
+            
+    <div class="rule-card" id="R11">
+        <div class="rule-header">
+            <span class="rule-id">R11</span>
+            <span class="rule-name">Porc : aucun transit par Mâcon</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Les camions porc ne transitent JAMAIS par le hub Mâcon. Raison économique : la marge porc est de 2,50 à 3 €/kg, et les coûts de handling au hub (rupture de charge, froid, dispatch) sont de 7 à 8 centimes/kg. Le hub ferait perdre 2-3 % de marge à chaque passage.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client — contrainte économique.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Le porc part toujours en camion complet (ou presque). Les 5 sites PORC (voir R16) doivent remplir un camion avant expédition. La taille moyenne d'une expédition porc est de ~4,5 t (contre ~2,4 t pour le bœuf), donc 4-5 expéditions suffisent à remplir un camion.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R12">
+        <div class="rule-header">
+            <span class="rule-id">R12</span>
+            <span class="rule-name">Bœuf : routage flexible, Mâcon autorisé</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>À l'inverse du porc (R11), le bœuf peut transiter par Mâcon. Sa marge supérieure (6 à 10 €/kg) absorbe sans difficulté les coûts de handling du hub (~7-8 cts/kg, soit moins de 1 % de la marge).</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client — analyse économique.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Le bœuf est l'unique flux qui bénéficie du hub. 69 % des expéditions bœuf sont des petits lots (&lt; 10 t) : elles sont les candidates prioritaires pour consolidation à Mâcon.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R13">
+        <div class="rule-header">
+            <span class="rule-id">R13</span>
+            <span class="rule-name">Hub Mâcon : consolidation de charges partielles 10-15 t</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Les chargements bœuf partiels (10-15 t) peuvent être déposés au hub Mâcon et regroupés avec d'autres partiels pour former des camions complets de 20 t vers l'Italie. La capacité tampon du hub permet d'attendre 1 à 2 jours pour constituer un camion.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Stratégie définie lors du PoC 2026-04-14.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Simulation : -31 camions sur 2 mois (-13 % de flotte) avec +1 jour de flexibilité acceptée par le client. Nécessite une capacité frigorifique au hub et une coordination des arrivées.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Classification">
+            <h2>🏷️ Classification — 3 règle(s)</h2>
+            
+    <div class="rule-card" id="R14">
+        <div class="rule-header">
+            <span class="rule-id">R14</span>
+            <span class="rule-name">Sites PORC (5)</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Les 5 abattoirs suivants produisent exclusivement du porc : <strong>Châteauneuf du Faou, Evron, Holtzheim, Porcgros, Saint-Brice-en-Coglès</strong>. Ces sites sont soumis à la règle R11 (pas de transit Mâcon).</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Classification produite lors du PoC + confirmation client.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Les scripts d'analyse et de planification identifient automatiquement ces sites par leur nom. Tout nouvel abattoir porc doit être ajouté à cette liste.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R15">
+        <div class="rule-header">
+            <span class="rule-id">R15</span>
+            <span class="rule-name">Site BREBIS unique</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Un seul abattoir expédie de la brebis : <strong>Bichon Le Vigeant</strong> (département 86 — Vienne). Soumis aux règles R05 (isolation) et R06 (exception Marfisi).</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Classification produite lors du PoC + confirmation client.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Toute expédition depuis Bichon = brebis. Les camions brebis sont généralement partiels (~3 t/expédition) et doivent être soit dédiés, soit routés via Marfisi.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R16">
+        <div class="rule-header">
+            <span class="rule-id">R16</span>
+            <span class="rule-name">Tous les autres sites = BŒUF</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Tous les sites non listés en R14 (porc) ou R15 (brebis) sont classés bœuf par défaut. Cela couvre 18 sites : Quimperlé, Guingamp, Montauban de Bretagne, Coutances, Gacé, Sablé, La Roche sur Yon, Châtaigneraie, Cholet, Cherré, Feignies, Metz, Vitry, Rungis, Castres, Cuiseaux, Egletons, Codevia.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Classification par exclusion.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">La règle par défaut simplifie la maintenance : ajouter un abattoir bœuf ne demande aucune modification du système, seuls les nouveaux sites porc ou brebis doivent être déclarés.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Volume">
+            <h2>📊 Volume — 1 règle(s)</h2>
+            
+    <div class="rule-card" id="R17">
+        <div class="rule-header">
+            <span class="rule-id">R17</span>
+            <span class="rule-name">Volume quotidien par site : 1 à 5 camions</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Selon l'activité, un site expédie entre 1 et 5 camions par jour. En pratique, 100 t sur un site équivalent à 5 camions pleins. Les sites à fort volume (Châteauneuf du Faou, Quimperlé, Châtaigneraie) tournent souvent à 2-3 camions/jour.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client + analyse données.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Un site qui passe à 6+ camions/jour est soit une anomalie (reporting manquant la veille), soit un pic ponctuel (fête, commande exceptionnelle). À surveiller.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Reglementaire">
+            <h2>📜 Réglementaire — 1 règle(s)</h2>
+            
+    <div class="rule-card" id="R18">
+        <div class="rule-header">
+            <span class="rule-id">R18</span>
+            <span class="rule-name">Température de chargement : 4-5 °C maxi</span>
+            <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+        </div>
+        <div class="rule-body">
+            <p>La viande doit être chargée à une température maximale de 4-5 °C conformément à la réglementation sanitaire (chaîne du froid UE).</p>
+            <div style="margin-top:10px; padding:10px 12px; background:#FDEBD0; border-left:3px solid #E67E22; border-radius:0 6px 6px 0; font-size:0.92em;"><strong>Note :</strong> Règle retirée du PoC 2026-04-14 car jugée non discriminante (toujours respectée). Ré-ajoutée le 2026-04-15 pour documentation. À confirmer si elle doit devenir un critère actif du moteur de planification.</div>
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Réglementation européenne (ex. Règlement CE 853/2004). Règle mentionnée lors du meeting 2026-04-15.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Non-respect = retrait du lot à l'arrivée + sanction administrative possible. Impose des camions frigo (tous les camions de la flotte concernée le sont déjà). Impact planning : nul en pratique (contrainte toujours respectée par les abattoirs et le transporteur).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-Pattern-detecte">
+            <h2>🔍 Pattern détecté — 5 règle(s)</h2>
+            
+    <div class="rule-card" id="R19">
+        <div class="rule-header">
+            <span class="rule-id">R19</span>
+            <span class="rule-name">Délai expédition → livraison plus long pour le porc (3 j vs 1 j)</span>
+            <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+        </div>
+        <div class="rule-body">
+            <p>Les expéditions porc ont un délai moyen de 2,7 jours entre date d'expédition et date de livraison (médiane 3 j). Les expéditions bœuf et brebis sont à 1,25 jour en moyenne (médiane 1 j). Cette différence structurelle suggère que les commandes porc sont planifiées plus à l'avance — possiblement lié à des tournées longue distance avec arrêt intermédiaire ou repos chauffeur.</p>
+            <div style="margin-top:10px; padding:10px 12px; background:#FDEBD0; border-left:3px solid #E67E22; border-radius:0 6px 6px 0; font-size:0.92em;"><strong>Note :</strong> À valider : est-ce une contrainte explicite (client, régulation), ou un effet indirect (distance moyenne, mode de livraison) ? Question à poser à Dominique.</div>
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Scan des 885 lignes du fichier BCS (janvier-février 2026).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Le porc demande un horizon de planification plus long (J-3 minimum). Les alertes porc doivent être déclenchées plus tôt que pour le bœuf.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R20">
+        <div class="rule-header">
+            <span class="rule-id">R20</span>
+            <span class="rule-name">Jours préférentiels par abattoir</span>
+            <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+        </div>
+        <div class="rule-body">
+            <p>Le scan des données révèle des jours d'expédition récurrents par abattoir (&gt; 50 % des expéditions sur un même jour de la semaine) : <ul style='margin:8px 0 0 25px;'><li><strong>Vendredi</strong> : Porcgros (100 %), Cherré (89 %), Coutances (86 %), Holtzheim (75 %), Metz (53 %), Châteauneuf du Faou (53 %)</li><li><strong>Mercredi</strong> : Quimperlé (68 %), Castres (66 %)</li><li><strong>Mardi</strong> : Bichon Le Vigeant (51 %)</li></ul>Ces jours correspondent vraisemblablement aux jours d'abattage ou de mise à quai.</p>
+            <div style="margin-top:10px; padding:10px 12px; background:#FDEBD0; border-left:3px solid #E67E22; border-radius:0 6px 6px 0; font-size:0.92em;"><strong>Note :</strong> À vérifier avec Dominique si ces jours sont imposés par les abattoirs (créneau disponibilité froid) ou seulement statistiques.</div>
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Scan statistique 9 semaines (janvier-février 2026).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Ces jours fixes doivent être respectés dans la planification. Un ramassage hors de ces jours sera probablement sur un lot résiduel (volume faible, chargement partiel).</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R21">
+        <div class="rule-header">
+            <span class="rule-id">R21</span>
+            <span class="rule-name">Destination unique = Italie</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Les 885 expéditions analysées (janvier-février 2026) vont <strong>exclusivement en Italie</strong> (code pays IT, 100 %). Aucun flux transfrontalier autre détecté.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Scan de la colonne Code Pays.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Le moteur de planification peut être optimisé pour un corridor France → Italie unique (documents douaniers, cabotage, ETA). Si de nouveaux marchés s'ouvrent (Suisse, Allemagne, Espagne), la règle devra être révisée.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R22">
+        <div class="rule-header">
+            <span class="rule-id">R22</span>
+            <span class="rule-name">76 destinations exclusives à 1 seul abattoir, 47 partagées par 2+</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>123 destinations distinctes en Italie, dont 76 ne sont servies que par 1 seul abattoir (dédiée) et 47 sont servies par 2+ abattoirs (partagées). Les destinations partagées sont les candidates prioritaires pour la consolidation.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Scan ville de livraison × abattoir.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Les 47 destinations partagées représentent l'opportunité majeure du hub Mâcon : plusieurs petits lots bœuf de sites différents vers le même client/ville italienne peuvent être regroupés en un camion complet au lieu de 2-3 partiels.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R23">
+        <div class="rule-header">
+            <span class="rule-id">R23</span>
+            <span class="rule-name">Taille moyenne d'expédition très différente par type viande</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>La taille d'une expédition unitaire varie fortement selon le type de viande : <ul style='margin:8px 0 0 25px;'><li><strong>Porc</strong> : médiane 4,5 t (moy. 8,1 t, max 21,7 t)</li><li><strong>Bœuf</strong> : médiane 2,4 t (moy. 3,5 t, max 21,2 t)</li><li><strong>Brebis</strong> : médiane 2,8 t (moy. 2,7 t, max 5,5 t)</li></ul>Le bœuf arrive par petits lots → d'où l'intérêt de la ramasse.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Analyse statistique des 885 expéditions.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Confirme la stratégie : porc = direct (déjà en camion complet), bœuf = ramasse/hub (beaucoup de petits lots), brebis = dédié ou Marfisi.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+        <div class="cat-section" id="cat-À-documenter">
+            <h2>❓ À documenter — 3 règle(s)</h2>
+            
+    <div class="rule-card" id="R24">
+        <div class="rule-header">
+            <span class="rule-id">R24</span>
+            <span class="rule-name">Fenêtres de livraison client</span>
+            <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+        </div>
+        <div class="rule-body">
+            <p>Chaque client italien a probablement des fenêtres horaires de réception (ex. livraison avant 10 h, pas de livraison lundi matin, etc.). Ces contraintes ne sont pas visibles dans les données actuelles.</p>
+            <div style="margin-top:10px; padding:10px 12px; background:#FDEBD0; border-left:3px solid #E67E22; border-radius:0 6px 6px 0; font-size:0.92em;"><strong>Note :</strong> Manque de données — à formaliser en annexe du prochain livrable.</div>
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">À recueillir auprès de Dominique Page.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Définit la date/heure de départ réelle depuis l'abattoir (remontée depuis l'ETA cible). Contraint le séquencement des tournées multi-clients.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R25">
+        <div class="rule-header">
+            <span class="rule-id">R25</span>
+            <span class="rule-name">Priorités commerciales client</span>
+            <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+        </div>
+        <div class="rule-body">
+            <p>Certains clients peuvent avoir une priorité de service supérieure (clients stratégiques, contrats avec pénalités de retard, etc.). Aucun champ de priorité n'est présent dans les données.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">À recueillir auprès de Dominique Page.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">En cas de conflit de ressources (camion insuffisant, créneau serré), la priorité détermine qui est servi en premier.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R26">
+        <div class="rule-header">
+            <span class="rule-id">R26</span>
+            <span class="rule-name">Abattoirs routables via Mâcon (liste explicite)</span>
+            <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+        </div>
+        <div class="rule-body">
+            <p>La simulation Mâcon du PoC suppose que tous les abattoirs bœuf peuvent théoriquement y transiter. En pratique, Castres est exclu (R10). La liste exacte des abattoirs éligibles doit être validée — certains sites peuvent avoir des contrats direct-to-client qui interdisent le transit.</p>
+            <div style="margin-top:10px; padding:10px 12px; background:#FDEBD0; border-left:3px solid #E67E22; border-radius:0 6px 6px 0; font-size:0.92em;"><strong>Note :</strong> À valider avec Dominique avant formalisation du moteur.</div>
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">PoC 2026-04-14 + hypothèse à valider.</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Impacte directement les gains de la simulation. Si 2-3 autres sites se révèlent non-routables, les -31 camions/2 mois calculés baissent.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        </div>
+        
+
+        <div class="section">
+            <h2>Prochaines étapes</h2>
+            <ol style="margin-left: 25px;">
+                <li><strong>Validation par Dominique Page</strong> de toutes les règles
+                    marquées <span class="rule-status status-tbv">⚠️ À VALIDER</span>
+                    (8 règles : R18, R19, R20, R24, R25, R26).</li>
+                <li><strong>Ajout des règles manquantes</strong> : fenêtres de livraison
+                    clients, priorités commerciales, contraintes de quai (horaires
+                    abattoirs), particularités hivernales (cols, neige), etc.</li>
+                <li><strong>Formalisation du moteur de règles</strong> dans la
+                    prochaine itération (phase "plat de résistance") :
+                    chaque règle devient un test automatisé qui valide ou invalide un
+                    plan de chargement.</li>
+                <li><strong>Tableau de bord de suivi</strong> : indicateurs temps réel
+                    de conformité aux règles (taux de respect, règles les plus souvent
+                    violées, etc.).</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>Règles métier Bigard / DPO-Olano — Version 2026-04-15</p>
+            <p>Basé sur 9 semaines de données (janvier-février 2026) + meetings client</p>
+            <p style="margin-top:10px;">
+                <a href="analyse.html" style="color:#E67E22; font-weight:bold;">→ Rapport 1 : Analyse</a>
+                &nbsp;&nbsp;
+                <a href="recommandations.html" style="color:#E67E22; font-weight:bold;">→ Rapport 2 : Recommandations</a>
+                &nbsp;&nbsp;
+                <a href="planning_semaine.html" style="color:#E67E22; font-weight:bold;">→ Planning semaine</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
