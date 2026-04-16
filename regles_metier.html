@@ -72,11 +72,11 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: 
     <div class="container">
         <div class="metrics-grid">
             <div class="metric-card accent">
-                <div class="value">26</div>
+                <div class="value">27</div>
                 <div class="label">Règles documentées</div>
             </div>
             <div class="metric-card green">
-                <div class="value">20</div>
+                <div class="value">21</div>
                 <div class="label">✅ Confirmées</div>
             </div>
             <div class="metric-card orange">
@@ -123,7 +123,7 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: 
 
             <h3 style="margin-top: 20px;">Accès rapide par catégorie</h3>
             <div class="cat-anchor">
-                <a href="#cat-Capacite">⚖️ Capacité (3)</a> <a href="#cat-Separation-des-viandes">🥩 Séparation des viandes (3)</a> <a href="#cat-Livraison">📦 Livraison (1)</a> <a href="#cat-Ramassage">🚚 Ramassage (3)</a> <a href="#cat-Routage-hub">🏭 Routage hub (3)</a> <a href="#cat-Classification">🏷️ Classification (3)</a> <a href="#cat-Volume">📊 Volume (1)</a> <a href="#cat-Reglementaire">📜 Réglementaire (1)</a> <a href="#cat-Pattern-detecte">🔍 Pattern détecté (5)</a> <a href="#cat-À-documenter">❓ À documenter (3)</a>
+                <a href="#cat-Capacite">⚖️ Capacité (3)</a> <a href="#cat-Separation-des-viandes">🥩 Séparation des viandes (3)</a> <a href="#cat-Livraison">📦 Livraison (1)</a> <a href="#cat-Ramassage">🚚 Ramassage (3)</a> <a href="#cat-Routage-hub">🏭 Routage hub (3)</a> <a href="#cat-Classification">🏷️ Classification (3)</a> <a href="#cat-Volume">📊 Volume (2)</a> <a href="#cat-Reglementaire">📜 Réglementaire (1)</a> <a href="#cat-Pattern-detecte">🔍 Pattern détecté (5)</a> <a href="#cat-À-documenter">❓ À documenter (3)</a>
             </div>
         </div>
 
@@ -511,7 +511,7 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: 
         </div>
         
         <div class="cat-section" id="cat-Volume">
-            <h2>📊 Volume — 1 règle(s)</h2>
+            <h2>📊 Volume — 2 règle(s)</h2>
             
     <div class="rule-card" id="R17">
         <div class="rule-header">
@@ -530,6 +530,28 @@ body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f5f6fa; color: 
                 <div class="rule-meta-item">
                     <div class="label">Impact sur le planning</div>
                     <div class="content">Un site qui passe à 6+ camions/jour est soit une anomalie (reporting manquant la veille), soit un pic ponctuel (fête, commande exceptionnelle). À surveiller.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="rule-card" id="R27">
+        <div class="rule-header">
+            <span class="rule-id">R27</span>
+            <span class="rule-name">Seuil minimum 10 tonnes pour expédier un camion</span>
+            <span class="rule-status status-ok">✅ CONFIRMÉ</span>
+        </div>
+        <div class="rule-body">
+            <p>Un camion ne doit pas être expédié vers l'Italie si sa charge totale est inférieure à <strong>10 tonnes</strong>. En dessous de ce seuil, les coûts de transport ne sont pas couverts par la marge du chargement.</p>
+            
+            <div class="rule-meta">
+                <div class="rule-meta-item">
+                    <div class="label">Source</div>
+                    <div class="content">Meeting client 2026-04-16 (Dominique Page).</div>
+                </div>
+                <div class="rule-meta-item">
+                    <div class="label">Impact sur le planning</div>
+                    <div class="content">Les lots trop petits pour justifier un camion dédié doivent être soit consolidés via le hub Mâcon (bœuf), soit reportés au lendemain (flexibilité J+1, R09), soit groupés avec d'autres lots du même jour. Le solveur de planning redirige automatiquement les camions &lt; 10 t vers Mâcon (bœuf) ou les signale comme 'en attente J+1' (porc/brebis).</div>
                 </div>
             </div>
         </div>
