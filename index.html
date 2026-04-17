@@ -57,6 +57,8 @@
         .report-card.reco { border-top: 5px solid #E67E22; }
         .report-card.planning { border-top: 5px solid #2E86C1; }
         .report-card.regles { border-top: 5px solid #27AE60; }
+        .report-card.direction { border-top: 5px solid #1F618D; }
+        .badge-new.send { background: #1F618D; }
         .badge-new { position: absolute; top: -10px; right: 15px; background: #E74C3C; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.78em; font-weight: bold; letter-spacing: 0.5px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); }
         .section-title { text-align: center; margin: 40px 0 10px; color: #2C3E50; font-size: 1.1em; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
         .section-title span { background: #f5f6fa; padding: 0 20px; position: relative; z-index: 1; }
@@ -93,13 +95,25 @@
     </div>
 
     <div class="section-title-wrap" style="margin-top: 50px;">
-        <div class="section-title"><span>🚀 Nouveau — 15 avril 2026</span></div>
+        <div class="section-title"><span>📋 Pour la direction</span></div>
+    </div>
+    <div class="card-grid">
+        <a href="rapport_direction.html" class="report-card direction">
+            <span class="badge-new">À ENVOYER</span>
+            <div class="icon">&#128196;</div>
+            <h2>RAPPORT DIRECTION<br>Synthèse hebdomadaire</h2>
+            <p>Vue d'ensemble (moyennes hebdo + graphs) + schéma d'exploitation jour par jour. Version PDF disponible. Format prêt à envoyer à la hiérarchie.</p>
+            <p style="color: #1F618D; font-weight: bold; margin-top: 15px;">Voir le rapport &rarr; &nbsp; <a href="rapport_direction.pdf" style="color:#E67E22;">📄 PDF</a></p>
+        </a>
+    </div>
+
+    <div class="section-title-wrap" style="margin-top: 50px;">
+        <div class="section-title"><span>🔧 Opérationnel</span></div>
     </div>
     <div class="card-grid">
         <a href="planning_semaine.html" class="report-card planning">
-            <span class="badge-new">NOUVEAU</span>
             <div class="icon">&#128197;</div>
-            <h2>PLANNING SEMAINE<br>21-25 avril 2026</h2>
+            <h2>PLANNING CAMIONS<br>21-25 avril 2026</h2>
             <p>Prévision jour par jour : abattoirs, tonnages, camions, routage et niveau de confiance. Feuille de planning à imprimer.</p>
             <p style="color: #2E86C1; font-weight: bold; margin-top: 15px;">Le planning &rarr;</p>
         </a>
