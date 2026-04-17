@@ -128,7 +128,7 @@ tr:hover { background: #f8f9fa; }
     </div>
     
 
-            <h3>Tonnage moyen par jour de la semaine</h3>
+            <h3>1.1. Moyenne par jour de la semaine</h3>
             <p style="color:#7F8C8D; font-size:0.93em; margin-bottom:5px;">
             Chaque barre représente le tonnage moyen d'une semaine typique. Le nombre
             de camions est indiqué en haut de chaque barre (arrondi supérieur sur une
@@ -136,12 +136,61 @@ tr:hover { background: #f8f9fa; }
             <img class="chart-img" src="graph_direction_avg_jour.png"
                  alt="Tonnage moyen par jour de la semaine" />
 
-            <h3>Évolution hebdomadaire</h3>
+            <h3>1.2. Évolution hebdomadaire</h3>
             <p style="color:#7F8C8D; font-size:0.93em; margin-bottom:5px;">
             Évolution du volume total semaine par semaine. On observe une montée en
             régime de ~140 t (semaine 1) à ~580 t (semaine 9).</p>
             <img class="chart-img" src="graph_direction_evolution.png"
                  alt="Évolution hebdomadaire du tonnage" />
+
+            <h3>1.3. Volume et camions — vues complémentaires</h3>
+            <p style="color:#7F8C8D; font-size:0.93em;">
+            Camions estimés par semaine, par abattoir et par type de viande.</p>
+            <img class="chart-img" src="01_camions_par_semaine.png" alt="Camions par semaine" />
+            <img class="chart-img" src="02_camions_par_abattoir.png" alt="Camions par abattoir" />
+            <img class="chart-img" src="03_volume_par_type.png" alt="Volume par type de viande" />
+
+            <h3>1.4. Activité quotidienne et hebdomadaire</h3>
+            <p style="color:#7F8C8D; font-size:0.93em;">
+            Volume quotidien, répartition par jour de la semaine et heatmap abattoir × semaine
+            (identification des pics et des creux).</p>
+            <img class="chart-img" src="05_volume_quotidien.png" alt="Volume quotidien" />
+            <img class="chart-img" src="06_jour_de_semaine.png" alt="Répartition par jour de semaine" />
+            <img class="chart-img" src="07_heatmap_abattoir_semaine.png" alt="Heatmap abattoir × semaine" />
+
+            <h3>1.5. Flux et destinations</h3>
+            <p style="color:#7F8C8D; font-size:0.93em;">
+            Top routes France → Italie et top destinations italiennes. 47 destinations sont
+            servies par 2+ abattoirs — autant d'opportunités de consolidation via le hub Mâcon.</p>
+            <img class="chart-img" src="04_top_routes.png" alt="Top routes" />
+            <img class="chart-img" src="13_top_destinations.png" alt="Top destinations italiennes" />
+
+            <h3>1.6. Simulation hub Mâcon</h3>
+            <div class="highlight">
+                <strong>⚠️ Lecture du graphique :</strong> la simulation calcule l'économie
+                théorique si chaque type de viande pouvait transiter par Mâcon avec +1 jour
+                de flexibilité. <strong>En pratique, seul le bœuf peut passer par Mâcon</strong>
+                (règle R11 — le porc a une marge de 2,5-3 €/kg incompatible avec le coût de
+                handling du hub ; les brebis sont isolés règle R05 sauf exception Marfisi R06).
+                <br><br>
+                <strong>Économie réelle réalisable</strong> :
+                <ul style="margin:8px 0 0 25px;">
+                    <li>Bœuf : <strong>−18 camions / 2 mois</strong> (~12,9 %) ✅ <em>actionnable</em></li>
+                    <li>Porc : 0 camion économisable (R11 bloque le transit hub) ❌</li>
+                    <li>Brebis : 0 camion économisable (R05 sauf Marfisi) ❌</li>
+                </ul>
+                <strong>Total économisable : 18 camions sur 2 mois</strong> (soit ~9 camions/mois,
+                ou ~2 camions/semaine).
+            </div>
+            <img class="chart-img" src="08_simulation_macon.png" alt="Simulation Mâcon" />
+
+            <h3>1.7. Prévisions et scénarios</h3>
+            <p style="color:#7F8C8D; font-size:0.93em;">
+            Projections de la demande et scénarios de croissance basés sur le trend observé.</p>
+            <img class="chart-img" src="09_prevision_demande.png" alt="Prévision demande" />
+            <img class="chart-img" src="10_scenarios_croissance.png" alt="Scénarios croissance" />
+            <img class="chart-img" src="11_prevision_par_abattoir.png" alt="Prévision par abattoir" />
+            <img class="chart-img" src="12_stabilite_abattoirs.png" alt="Stabilité des abattoirs" />
         </div>
 
         <div class="section">
